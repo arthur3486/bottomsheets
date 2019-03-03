@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/title"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/action_picker_bottom_sheet_item_height"
+    android:paddingLeft="@dimen/action_picker_bottom_sheet_item_horizontal_padding"
+    android:paddingStart="@dimen/action_picker_bottom_sheet_item_horizontal_padding"
+    android:paddingRight="@dimen/action_picker_bottom_sheet_item_horizontal_padding"
+    android:paddingEnd="@dimen/action_picker_bottom_sheet_item_horizontal_padding"
+    android:gravity="center_vertical"
+    android:drawablePadding="@dimen/action_picker_bottom_sheet_item_horizontal_padding"
+    android:textSize="@dimen/action_picker_bottom_sheet_item_text_size"
+    android:background="?selectableItemBackground"
+    tools:drawableLeft="@drawable/ic_attach_file_black_24dp"
+    tools:drawableStart="@drawable/ic_attach_file_black_24dp"
+    tools:text="Hello there"/>

@@ -1,0 +1,4 @@
+include ':app'
+include ':bottomsheets-core'
+include ':bottomsheets-sheets'
+include ':bottomsheets-ktx'

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="bottom_sheet_max_sheet_width">500dp</dimen>
+    <dimen name="bottom_sheet_sheet_corner_radius">8dp</dimen>
+
+</resources>

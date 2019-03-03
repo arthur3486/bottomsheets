@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="bottom_sheet_dim_color">#000000</color>
+    <color name="bottom_sheet_background_color">#ffffff</color>
+
+</resources>

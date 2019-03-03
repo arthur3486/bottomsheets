@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/person_item_height"
+    android:paddingLeft="@dimen/person_item_horizontal_padding"
+    android:paddingStart="@dimen/person_item_horizontal_padding"
+    android:paddingRight="@dimen/person_item_horizontal_padding"
+    android:paddingEnd="@dimen/person_item_horizontal_padding"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:clipToPadding="false"
+    android:background="?selectableItemBackground">
+
+    <!-- Person Image -->
+
+    <ImageView
+        android:id="@+id/imageIv"
+        android:layout_width="@dimen/person_item_image_size"
+        android:layout_height="@dimen/person_item_image_size"
+        android:layout_marginRight="@dimen/person_item_internal_horizontal_spacing"
+        android:layout_marginEnd="@dimen/person_item_internal_horizontal_spacing"/>
+
+    <!-- Full Name -->
+
+    <TextView
+        android:id="@+id/fullNameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/person_item_internal_horizontal_spacing"
+        android:layout_marginStart="@dimen/person_item_internal_horizontal_spacing"
+        android:layout_marginRight="@dimen/person_item_internal_horizontal_spacing"
+        android:layout_marginEnd="@dimen/person_item_internal_horizontal_spacing"
+        android:fontFamily="@string/font_family_medium"
+        android:textSize="@dimen/person_item_name_text_size"
+        android:textColor="@color/colorPrimaryTextBlack"/>
+
+    <!-- Username -->
+
+    <TextView
+        android:id="@+id/usernameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/person_item_username_text_size"
+        android:textColor="@color/colorSecondaryTextGray"/>
+
+</LinearLayout>

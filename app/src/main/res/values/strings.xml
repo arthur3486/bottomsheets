@@ -1,0 +1,31 @@
+<resources>
+
+    <string name="app_name">Bottom Sheets Demo</string>
+
+    <!-- Font Families -->
+    <string name="font_family_normal">sans-serif</string>
+    <string name="font_family_medium">sans-serif-medium</string>
+    <string name="font_family_thin">sans-serif-thin</string>
+
+    <string name="confirmation_title_item_deletion">Delete item? The action is irreversible.</string>
+
+    <string name="action_confirm">Confirm</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_cancel">Cancel</string>
+
+    <string name="action_print">Print</string>
+    <string name="action_save">Save</string>
+    <string name="action_recharge">Recharge</string>
+    <string name="action_like">Like</string>
+    <string name="action_dislike">Dislike</string>
+
+    <string name="button_title_custom_bottom_sheet">Custom Bottom Sheet</string>
+    <string name="button_title_confirmation_bottom_sheet">Confirmation Bottom Sheet</string>
+    <string name="button_title_actions_bottom_sheet">Actions Bottom Sheet</string>
+    <string name="button_title_custom_actions_bottom_sheet">Custom Actions Bottom Sheet</string>
+
+    <string name="person_item_username_template">\@%1$s</string>
+
+    <string name="simple_custom_bottom_sheet_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum auctor, risus ut congue sollicitudin, neque sem cursus libero, sit amet feugiat tortor diam eu orci. Proin ullamcorper metus eu eros pellentesque, bibendum tristique ex scelerisque. Suspendisse eget auctor enim. Nullam id nisi ante. Maecenas at augue eu magna convallis lacinia ac iaculis turpis.</string>
+
+</resources>

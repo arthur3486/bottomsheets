@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="person_item_height">42dp</dimen>
+    <dimen name="person_item_horizontal_padding">16dp</dimen>
+    <dimen name="person_item_image_size">32dp</dimen>
+    <dimen name="person_item_name_text_size">14sp</dimen>
+    <dimen name="person_item_username_text_size">14sp</dimen>
+    <dimen name="person_item_internal_horizontal_spacing">8dp</dimen>
+
+    <dimen name="simple_custom_bottom_sheet_padding">20dp</dimen>
+    <dimen name="simple_custom_bottom_sheet_text_size">18sp</dimen>
+
+</resources>

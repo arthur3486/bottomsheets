@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/action_picker_bottom_sheet_padding_top"
+    android:orientation="vertical">
+
+    <!-- Title -->
+
+    <TextView
+        android:id="@id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/action_picker_bottom_sheet_title_vertical_padding"
+        android:paddingBottom="@dimen/action_picker_bottom_sheet_title_vertical_padding"
+        android:paddingLeft="@dimen/action_picker_bottom_sheet_title_horizontal_padding"
+        android:paddingStart="@dimen/action_picker_bottom_sheet_title_horizontal_padding"
+        android:paddingRight="@dimen/action_picker_bottom_sheet_title_horizontal_padding"
+        android:paddingEnd="@dimen/action_picker_bottom_sheet_title_horizontal_padding"
+        android:textSize="@dimen/action_picker_bottom_sheet_title_text_size"/>
+
+    <!-- Action Container -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/action_picker_bottom_sheet_padding_bottom"
+        android:clipToPadding="false"
+        android:overScrollMode="never"/>
+
+</LinearLayout>

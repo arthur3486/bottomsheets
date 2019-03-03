@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="action_picker_bottom_sheet_padding_top">8dp</dimen>
+    <dimen name="action_picker_bottom_sheet_padding_bottom">8dp</dimen>
+
+    <dimen name="action_picker_bottom_sheet_title_horizontal_padding">20dp</dimen>
+    <dimen name="action_picker_bottom_sheet_title_vertical_padding">16dp</dimen>
+    <dimen name="action_picker_bottom_sheet_title_text_size">14sp</dimen>
+
+    <dimen name="action_picker_bottom_sheet_item_height">48dp</dimen>
+    <dimen name="action_picker_bottom_sheet_item_horizontal_padding">18dp</dimen>
+    <dimen name="action_picker_bottom_sheet_item_text_size">16sp</dimen>
+
+</resources>
