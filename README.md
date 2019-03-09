@@ -68,7 +68,7 @@ ext {
 
 dependencies {
     //...
-	implementation "com.arthurivanets.bottomsheet:bottomsheets-core:1.0.0"
+    implementation "com.arthurivanets.bottomsheet:bottomsheets-core:1.0.0"
 }
 ````
 
