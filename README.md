@@ -30,12 +30,9 @@ Screenshots
 
 <div style="dispaly:flex">
     <img src="https://github.com/arthur3486/bottomsheets/blob/master/1.jpg" width="24%">
-	<div width="1%"/>
     <img src="https://github.com/arthur3486/bottomsheets/blob/master/2.jpg" width="24%">
-	<div width="1%"/>
     <img src="https://github.com/arthur3486/bottomsheets/blob/master/3.jpg" width="24%">
-	<div width="1%"/>
-	<img src="https://github.com/arthur3486/bottomsheets/blob/master/4.jpg" width="24%">
+    <img src="https://github.com/arthur3486/bottomsheets/blob/master/4.jpg" width="24%">
 </div>
 
 ## Getting Started
