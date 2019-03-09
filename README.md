@@ -352,7 +352,7 @@ public class MainActivity extends AppCompatActivity {
 
 ## Custom Action Picker Implementation
 
-The implementation of the Custom Action Picker Bottom Sheet is not that much different from the [`Action Picker Implemenetation`](#action-picker-implementation), you just need to use the [`CustomActionPickerBottomSheet.java`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-sheets/src/main/java/com/arthurivanets/bottomsheets/sheets/CustomActionPickerBottomSheet.java) with your custom [`BaseActionItem`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-sheets/src/main/java/com/arthurivanets/bottomsheets/sheets/adapters/actionpicker/BaseActionItem.java)-based Action Items and that's it.
+The implementation of the Custom Action Picker Bottom Sheet is not that much different from the [`Action Picker Implemenetation`](#action-picker-implementation), you just need to use the [`CustomActionPickerBottomSheet.java`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-sheets/src/main/java/com/arthurivanets/bottomsheets/sheets/CustomActionPickerBottomSheet.java) instead of the [`ActionPickerBottomSheet.java`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-sheets/src/main/java/com/arthurivanets/bottomsheets/sheets/ActionPickerBottomSheet.java) in conjunction with your custom [`BaseActionItem`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-sheets/src/main/java/com/arthurivanets/bottomsheets/sheets/adapters/actionpicker/BaseActionItem.java)-based Items and that's it.
 
 See the example of a [Custom Action Picker in Action](https://github.com/arthur3486/bottomsheets/blob/master/app/src/main/java/com/arthurivanets/demo/ui/MainActivity.kt#L99).
 
