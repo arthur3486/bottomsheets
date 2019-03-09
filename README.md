@@ -229,7 +229,7 @@ The implementation of the Action Picker Bottom Sheet becomes a trivial task with
 
 Let's use the [`ActionPickerBottomSheet.java`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-sheets/src/main/java/com/arthurivanets/bottomsheets/sheets/ActionPickerBottomSheet.java) in our Activity:
 
-* **With [`bottomsheets-ktx`]()**
+* **With [`bottomsheets-ktx`](https://bintray.com/arthurimsacc/maven/bottomsheets-ktx/_latestVersion)**
 
 <details><summary><b>Kotlin (click to expand)</b></summary>
 <p>
@@ -240,8 +240,6 @@ class MainActivity : AppCompatActivity() {
     private var bottomSheet : BottomSheet? = null
 
     private fun showActionsBottomSheet() {
-        dismissBottomSheet()
-
         bottomSheet = showActionPickerBottomSheet(
             options = getActionOptions(),
             onItemSelectedListener = OnItemSelectedListener {
@@ -289,7 +287,7 @@ public class MainActivity extends AppCompatActivity {
 
 </p></details><br>
 
-* **Without [`bottomsheets-ktx`]()**
+* **Without [`bottomsheets-ktx`](https://bintray.com/arthurimsacc/maven/bottomsheets-ktx/_latestVersion)**
 
 <details><summary><b>Kotlin (click to expand)</b></summary>
 <p>
@@ -300,8 +298,6 @@ class MainActivity : AppCompatActivity() {
     private var bottomSheet : BottomSheet? = null
 
     private fun showActionsBottomSheet() {
-        dismissBottomSheet()
-
         bottomSheet = ActionPickerBottomSheet.init(
             this,
             getActionOptions().map(::ActionItem),
@@ -356,7 +352,9 @@ public class MainActivity extends AppCompatActivity {
 
 ## Custom Action Picker Implementation
 
-//TODO <--- to be done (Basic example of how to use the Custom Action Picker from the `bottomsheets-sheets`)
+The implementation of the Custom Action Picker Bottom Sheet is not that much different from the [`Action Picker Implemenetation`](#action-picker-implementation), you just need to use the [`CustomActionPickerBottomSheet.java`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-sheets/src/main/java/com/arthurivanets/bottomsheets/sheets/CustomActionPickerBottomSheet.java) with your custom [`BaseActionItem`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-sheets/src/main/java/com/arthurivanets/bottomsheets/sheets/adapters/actionpicker/BaseActionItem.java)-based Action Items and that's it.
+
+See the example of a [Custom Action Picker in Action](https://github.com/arthur3486/bottomsheets/blob/master/app/src/main/java/com/arthurivanets/demo/ui/MainActivity.kt#L99).
 
 ## Advanced Use
 
