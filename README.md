@@ -2,7 +2,7 @@
 
 > ***Android library designed to enrich your application with the beautiful stutter-free Material Design Bottom Sheets***
 
-BottomSheets will help you make your application more appealing to your end users with its sleek stutter-free implementation of the Bottom Sheets.
+BottomSheets will help you make your application more appealing to your end users with its sleek stutter-free implementation of the Material Bottom Sheets.
 
 [ ![Download](https://api.bintray.com/packages/arthurimsacc/maven/bottomsheets-core/images/download.svg) ](https://bintray.com/arthurimsacc/maven/bottomsheets-core/_latestVersion)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -221,9 +221,138 @@ public class MainActivity extends AppCompatActivity {
 }
 ````
 
+</p></details><br>
+
 ## Action Picker Implementation
 
-//TODO <--- to be done (Basic example of how to use the Action Picker from the `bottomsheets-sheets`)
+The implementation of the Action Picker Bottom Sheet becomes a trivial task with [`ActionPickerBottomSheet.java`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-sheets/src/main/java/com/arthurivanets/bottomsheets/sheets/ActionPickerBottomSheet.java), as all you need to do here is simply provide a list of options and a bottom sheet configuration.
+
+Let's use the [`ActionPickerBottomSheet.java`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-sheets/src/main/java/com/arthurivanets/bottomsheets/sheets/ActionPickerBottomSheet.java) in our Activity:
+
+* **With [`bottomsheets-ktx`]()**
+
+<details><summary><b>Kotlin (click to expand)</b></summary>
+<p>
+
+````kotlin
+class MainActivity : AppCompatActivity() {
+
+    private var bottomSheet : BottomSheet? = null
+
+    private fun showActionsBottomSheet() {
+        dismissBottomSheet()
+
+        bottomSheet = showActionPickerBottomSheet(
+            options = getActionOptions(),
+            onItemSelectedListener = OnItemSelectedListener {
+                // do something...
+            }
+        )
+    }
+	
+    fun getActionOptions() : List<Option> {
+        // your options
+    }
+
+}
+````
+
+</p></details><br>
+
+<details><summary><b>Java (click to expand)</b></summary>
+<p>
+    
+````java
+public class MainActivity extends AppCompatActivity {
+
+    private BottomSheet bottomSheet;
+
+    private void showActionsBottomSheet() {
+        bottomSheet = BottomSheetsUtils.showActionPickerBottomSheet(
+            this,
+            getActionOptions(),
+            new OnItemSelectedListener<Option>() {
+                @Override
+                public void onItemSelected(@NonNull Option item) {
+                    // do something
+                }    
+            }
+        );
+    }
+
+    private List<Option> getActionOptions() {
+        // your options
+    } 
+
+}
+````
+
+</p></details><br>
+
+* **Without [`bottomsheets-ktx`]()**
+
+<details><summary><b>Kotlin (click to expand)</b></summary>
+<p>
+
+````kotlin
+class MainActivity : AppCompatActivity() {
+
+    private var bottomSheet : BottomSheet? = null
+
+    private fun showActionsBottomSheet() {
+        dismissBottomSheet()
+
+        bottomSheet = ActionPickerBottomSheet.init(
+            this,
+            getActionOptions().map(::ActionItem),
+            Config.Builder(this).build()
+        )
+        bottomSheet.setOnItemSelectedListener { 
+            // do something...
+        }
+        bottomSheet.show()
+    }
+
+    fun getActionOptions() : List<Option> {
+        // your options
+    }
+
+}
+````
+
+</p></details><br>
+
+<details><summary><b>Java (click to expand)</b></summary>
+<p>
+    
+````java
+public class MainActivity extends AppCompatActivity {
+
+    private BottomSheet bottomSheet;
+
+    private void showActionsBottomSheet() {
+        bottomSheet = ActionPickerBottomSheet.init(
+            this,
+            getActionOptions(),
+            new Config.Builder(this).build()
+        );
+        bottomSheet.setOnItemSelectedListener(new OnItemSelectedListener<ActionItem>() {
+            @Override
+            public void onItemSelected(@NonNull ActionItem item) {
+                // do something
+            }
+        });
+        bottomSheet.show();
+    }
+
+    private List<ActionItem> getActionOptions() {
+        // your options wrapped into ActionItem(-s)
+    }
+
+}
+````
+
+</p></details><br>
 
 ## Custom Action Picker Implementation
 
