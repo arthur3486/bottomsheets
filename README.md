@@ -2,7 +2,7 @@
 
 > ***Android library designed to enrich your application with the beautiful stutter-free Material Design Bottom Sheets***
 
-BottomSheets will help you make your application more appealing to your end user with its sleek stutter-free implementation of the Bottom Sheets.
+BottomSheets will help you make your application more appealing to your end users with its sleek stutter-free implementation of the Bottom Sheets.
 
 [ ![Download](https://api.bintray.com/packages/arthurimsacc/maven/bottomsheets-core/images/download.svg) ](https://bintray.com/arthurimsacc/maven/bottomsheets-core/_latestVersion)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -14,20 +14,29 @@ BottomSheets will help you make your application more appealing to your end user
 
 * [Demo](#demo-youtube)
 * [Getting Started](#getting-started)
-* [Public APIs](#)//TODO <--- ?
-* [Basic Custom Implementation](#)//TODO <---
-* [Action Picker Implementation](#)//TODO <---
-* [Custom Action Picker Implementation](#)//TODO <---
-* [Advanced Use](#advanced-use)
+* [Structure and APIs](#structure-and-apis)
+* [Basic Custom Implementation](#basic-custom-implementation)
+* [Action Picker Implementation](#action-picker-implementation)
+* [Custom Action Picker Implementation](#custom-action-picker-implementation)
 * [Contribution](#contribution)
 * [Hall of Fame](#hall-of-fame)
 * [License](#license)
 
 ## Demo (YouTube)
 
-[![YouTube Video]( /*TODO Preview Image to be place here */ )](https://youtu.be/hfvWiqZiqUU)
-//TODO <--- A few Screenshots ( + GIFs) to be placed here...
-//TODO <--- Bottom Sheets Speed Comparison [stock vs BottomSheets] (animation)
+[****Demo Video****](https://youtu.be/hfvWiqZiqUU)
+
+Screenshots
+
+<div style="dispaly:flex">
+    <img src="https://github.com/arthur3486/bottomsheets/blob/master/1.jpg" width="24%">
+	<div width="1%"/>
+    <img src="https://github.com/arthur3486/bottomsheets/blob/master/2.jpg" width="24%">
+	<div width="1%"/>
+    <img src="https://github.com/arthur3486/bottomsheets/blob/master/3.jpg" width="24%">
+	<div width="1%"/>
+	<img src="https://github.com/arthur3486/bottomsheets/blob/master/4.jpg" width="24%">
+</div>
 
 ## Getting Started
 
