@@ -106,7 +106,7 @@ dependencies {
 ````
 
 6. Proceed with the implementation.
-> ***See: [Structure and APIs](#structure-and-apis), [Basic Custom Implementation](#basic-custom-implementation)***
+> ***See: [Structure](#structure), [Basic Custom Implementation](#basic-custom-implementation)***
 
 ## Structure
 
@@ -124,9 +124,102 @@ The third and last module - [`bottomsheets-ktx`](https://bintray.com/arthurimsac
 
 ## Basic Custom Implementation
 
-**IMPORTANT**: 
-// Theme.NoActionBar (as the BottomSheet is a child in the View Hierarchy)
-//TODO <--- to be done (Basic Example of the Info Message Bottom Sheet)
+**IMPORTANT**: In order to prevent the visual inconsistencies which might be caused by certain UI elements of the Application Theme, it is recommended that you specify the Application/Activity Theme without the Action Bar (any variant of the `Theme.NoActionBar` will suffice). You might also want to make your Status Bar translucent for more immersive experience.
+
+In order to implement a basic custom bottom sheet you need to follow three simple steps:
+1) Create a new class and extend it from the [`BaseBottomSheet.java`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-core/src/main/java/com/arthurivanets/bottomsheets/BaseBottomSheet.java).
+2) Provide the custom content view for your bottom sheet in the [`onCreateSheetContentView(...)`](https://github.com/arthur3486/bottomsheets/blob/master/app/src/main/java/com/arthurivanets/demo/ui/widget/SimpleCustomBottomSheet.kt#L34).
+3) Use the created bottom sheet in your Activity/Fragment.
+
+So, let's create a custom bottom sheet class - [`SimpleCustomBottomSheet`](https://github.com/arthur3486/bottomsheets/blob/master/app/src/main/java/com/arthurivanets/demo/ui/widget/SimpleCustomBottomSheet.kt) and provide our own content view:
+
+<details><summary><b>Kotlin (click to expand)</b></summary>
+<p>
+    
+````kotlin
+class SimpleCustomBottomSheet(
+    hostActivity : Activity,
+    config : BaseConfig = Config.Builder(hostActivity).build()
+) : BaseBottomSheet(hostActivity, config) {
+
+    override fun onCreateSheetContentView(context : Context) : View {
+        return LayoutInflater.from(context).inflate(
+            R.layout.view_simple_custom_bottom_sheet,
+            this,
+            false
+        )
+    }
+
+}
+````
+
+</p></details><br>
+
+<details><summary><b>Java (click to expand)</b></summary>
+<p>
+    
+````java
+public class SimpleCustomBottomSheet extends BaseBottomSheet {
+
+    public SimpleCustomBottomSheet(@NonNull Activity hostActivity) {
+        this(hostActivity, new Config.Builder(hostActivity).build());
+    }
+
+    public SimpleCustomBottomSheet(@NonNull Activity hostActivity, @NonNull BaseConfig config) {
+        super(hostActivity, config);
+    }
+
+    @NonNull
+    @Override
+    public final View onCreateSheetContentView(@NonNull Context context) {
+        return LayoutInflater.from(context).inflate(
+            R.layout.view_simple_custom_bottom_sheet,
+            this,
+            false
+        );
+    }
+
+}
+````
+
+</p></details><br>
+
+And now let's use the created [`SimpleCustomBottomSheet`](https://github.com/arthur3486/bottomsheets/blob/master/app/src/main/java/com/arthurivanets/demo/ui/widget/SimpleCustomBottomSheet.kt) in our Activity:
+
+<details><summary><b>Kotlin (click to expand)</b></summary>
+<p>
+
+````kotlin
+class MainActivity : AppCompatActivity() {
+
+    private var bottomSheet : BaseBottomSheet? = null
+
+    private fun showCustomBottomSheet() {
+        //...
+        bottomSheet = SimpleCustomBottomSheet(this).also(BottomSheet::show)
+    }
+
+}
+````
+
+</p></details><br>
+
+<details><summary><b>Java (click to expand)</b></summary>
+<p>
+    
+````java
+public class MainActivity extends AppCompatActivity {
+
+    private BottomSheet bottomSheet;
+
+    private void showCustomBottomSheet() {
+        //...
+        bottomSheet = new SimpleCustomBottomSheet(this);
+        bottomSheet.show();
+    }
+
+}
+````
 
 ## Action Picker Implementation
 
@@ -138,7 +231,7 @@ The third and last module - [`bottomsheets-ktx`](https://bintray.com/arthurimsac
 
 ## Advanced Use
 
-<br>See the [Sample app](https://github.com/arthur3486/bottomsheets/tree/master/app/src/main/java/com/arthurivanets/demo).
+See the [Sample app](https://github.com/arthur3486/bottomsheets/tree/master/app/src/main/java/com/arthurivanets/demo).
 
 ## Contribution
 
