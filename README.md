@@ -12,9 +12,9 @@ BottomSheets will help you make your application more appealing to your end user
 
 ## Contents
 
-* [Demo](#demo-youtube)
+* [Demo](#demo)
 * [Getting Started](#getting-started)
-* [Structure and APIs](#structure-and-apis)
+* [Structure](#structure)
 * [Basic Custom Implementation](#basic-custom-implementation)
 * [Action Picker Implementation](#action-picker-implementation)
 * [Custom Action Picker Implementation](#custom-action-picker-implementation)
@@ -108,20 +108,19 @@ dependencies {
 6. Proceed with the implementation.
 > ***See: [Structure and APIs](#structure-and-apis), [Basic Custom Implementation](#basic-custom-implementation)***
 
-## Structure and APIs
+## Structure
 
 The library is comprised of 3 modules, namely:
 
-* `bottomsheets-core` - core functionality (Required)
-* `bottomsheets-sheets` - concrete implementations of the common bottom sheet types (Optional)
-* `bottomsheets-ktx` - common extensions and utils (Optional)
+* [`bottomsheets-core`](https://bintray.com/arthurimsacc/maven/bottomsheets-core/_latestVersion) - core functionality (Required)
+* [`bottomsheets-sheets`](https://bintray.com/arthurimsacc/maven/bottomsheets-sheets/_latestVersion) - concrete implementations of the common bottom sheet types (Optional)
+* [`bottomsheets-ktx`](https://bintray.com/arthurimsacc/maven/bottomsheets-ktx/_latestVersion) - common extensions and utils (Optional)
 
-The first module - `bottomsheets-core` - is a base module the other modules depend on, it is the starting point for all of your custom bottom sheet implementations and is a required module. This module provides you with the base classes required for the bottom sheet implementation, such as the `Class Name [with the exact reference]` which should be extended by your custom implementations of the bottom sheet.//TODO <---
+The first module - [`bottomsheets-core`](https://bintray.com/arthurimsacc/maven/bottomsheets-core/_latestVersion) - is a base module the other modules depend on, it is the starting point for all of your custom bottom sheet implementations and is a required module. This module provides you with the base classes required for the bottom sheet implementation, such as the [`BaseBottomSheet.java`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-core/src/main/java/com/arthurivanets/bottomsheets/BaseBottomSheet.java) which should be extended by your custom implementations of the bottom sheet and [`BottomSheet.java`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-core/src/main/java/com/arthurivanets/bottomsheets/BottomSheet.java) contract which exposes its supported public APIs, here you will also find the [`Config.java`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-core/src/main/java/com/arthurivanets/bottomsheets/config/Config.java) class which will help you customize the bottom sheet.
 
-The second module - `bottomsheets-sheets` - is a ... (depends on/ requires) the [Adapster]( TODO adapster gh reference )
+The second module - [`bottomsheets-sheets`](https://bintray.com/arthurimsacc/maven/bottomsheets-sheets/_latestVersion) - is an optional module which includes the implementations of the most common bottom sheet types. Here you will find the [`ActionPickerBottomSheet.java`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-sheets/src/main/java/com/arthurivanets/bottomsheets/sheets/ActionPickerBottomSheet.java), [`CustomActionPickerBottomSheet.java`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-sheets/src/main/java/com/arthurivanets/bottomsheets/sheets/CustomActionPickerBottomSheet.java), as well as the coresponding configuration class - [`Config.java`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-sheets/src/main/java/com/arthurivanets/bottomsheets/sheets/config/Config.java). This module depends on the [`bottomsheets-core`](https://bintray.com/arthurimsacc/maven/bottomsheets-core/_latestVersion) and the [`Adapster`](https://github.com/arthur3486/adapster) library.
 
-The third and last module - `bottomsheets-ktx` - is a ...
-//TODO <---
+The third and last module - [`bottomsheets-ktx`](https://bintray.com/arthurimsacc/maven/bottomsheets-ktx/_latestVersion) - is a collection of the extensions and general utils. Here you'll be able to find the [`BottomSheetsExtensions.kt`](https://github.com/arthur3486/bottomsheets/blob/master/bottomsheets-ktx/src/main/java/com/arthurivanets/bottomsheets/ktx/BottomSheetsExtensions.kt) which will simplify the creation of the common bottom sheet types in your Activities and Fragments. This module depends on the [`bottomsheets-core`](https://bintray.com/arthurimsacc/maven/bottomsheets-core/_latestVersion), [`bottomsheets-sheets`](https://bintray.com/arthurimsacc/maven/bottomsheets-sheets/_latestVersion) and the [`Adapster`](https://github.com/arthur3486/adapster) library.
 
 ## Basic Custom Implementation
 
@@ -139,9 +138,6 @@ The third and last module - `bottomsheets-ktx` - is a ...
 
 ## Advanced Use
 
-//TODO <--- to be done (Short description of the sample app)
-
-- **More uses**
 <br>See the [Sample app](https://github.com/arthur3486/bottomsheets/tree/master/app/src/main/java/com/arthurivanets/demo).
 
 ## Contribution
