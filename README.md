@@ -18,15 +18,22 @@ BottomSheets will help you make your application more appealing to your end user
 * [Basic Custom Implementation](#basic-custom-implementation)
 * [Action Picker Implementation](#action-picker-implementation)
 * [Custom Action Picker Implementation](#custom-action-picker-implementation)
+* [Advanced Use](#advanced-use)
 * [Contribution](#contribution)
 * [Hall of Fame](#hall-of-fame)
 * [License](#license)
 
-## Demo (YouTube)
+## Demo
 
-[****Demo Video****](https://youtu.be/hfvWiqZiqUU)
+* Demo Video
 
-Screenshots
+<div style="dispaly:flex">
+	<a href="https://www.youtube.com/watch?v=hfvWiqZiqUU">
+		<img src="https://github.com/arthur3486/bottomsheets/blob/master/5.jpg" width="60%">
+	</a>
+</div>
+
+* Screenshots
 
 <div style="dispaly:flex">
     <img src="https://github.com/arthur3486/bottomsheets/blob/master/1.jpg" width="24%">
@@ -61,7 +68,7 @@ ext {
 
 dependencies {
     //...
-    implementation //TODO <--- the proper package name to be placed here
+	implementation "com.arthurivanets.bottomsheet:bottomsheets-core:1.0.0"
 }
 ````
 
@@ -98,14 +105,27 @@ dependencies {
 //...
 ````
 
+6. Proceed with the implementation.
+> ***See: [Structure and APIs](#structure-and-apis), [Basic Custom Implementation](#basic-custom-implementation)***
+
+## Structure and APIs
+
+The library is comprised of 3 modules, namely:
+
+* `bottomsheets-core` - core functionality (Required)
+* `bottomsheets-sheets` - concrete implementations of the common bottom sheet types (Optional)
+* `bottomsheets-ktx` - common extensions and utils (Optional)
+
+The first module - `bottomsheets-core` - is a base module the other modules depend on, it is the starting point for all of your custom bottom sheet implementations and is a required module. This module provides you with the base classes required for the bottom sheet implementation, such as the `Class Name [with the exact reference]` which should be extended by your custom implementations of the bottom sheet.//TODO <---
+
+The second module - `bottomsheets-sheets` - is a ... (depends on/ requires) the [Adapster]( TODO adapster gh reference )
+
 //TODO <---
-Important <- Theme.NoActionBar <--- !!!
 
-6. Proceed with the implementation. //TODO <---
-> ***See: [Basic Implementation](#)*** //TODO <--- to be replaced with the corresponding section references
+## Basic Custom Implementation
 
-## Basic Implementation
-
+**IMPORTANT**: 
+// Theme.NoActionBar (as the BottomSheet is a child in the View Hierarchy)
 //TODO <--- to be done
 
 ## Action Picker Implementation
