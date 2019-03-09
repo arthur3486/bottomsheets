@@ -22,6 +22,7 @@ import com.arthurivanets.bottomsheets.BaseBottomSheet
 import com.arthurivanets.bottomsheets.BottomSheet
 import com.arthurivanets.bottomsheets.ktx.showActionPickerBottomSheet
 import com.arthurivanets.bottomsheets.ktx.showCustomActionPickerBottomSheet
+import com.arthurivanets.bottomsheets.sheets.config.Config
 import com.arthurivanets.bottomsheets.sheets.listeners.OnItemSelectedListener
 import com.arthurivanets.demo.R
 import com.arthurivanets.demo.adapters.persons.PersonItem
@@ -75,8 +76,10 @@ class MainActivity : AppCompatActivity() {
         dismissBottomSheet()
 
         bottomSheet = showActionPickerBottomSheet(
-            title = getString(R.string.confirmation_title_item_deletion),
             options = ConfirmationActionsProvider.getGeneralDeletionConfirmationActionOptions(this),
+            config = Config.Builder(this)
+                .title(getString(R.string.confirmation_title_item_deletion))
+                .build(),
             onItemSelectedListener = OnItemSelectedListener {
                 shortToast(it.title.toString())
             }

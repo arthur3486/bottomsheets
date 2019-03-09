@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-@file:JvmName("BottomSheetsExtensions")
+@file:JvmName("BottomSheetsUtils")
 
 package com.arthurivanets.bottomsheets.ktx
 
@@ -24,6 +24,7 @@ import com.arthurivanets.bottomsheets.sheets.ActionPickerBottomSheet
 import com.arthurivanets.bottomsheets.sheets.CustomActionPickerBottomSheet
 import com.arthurivanets.bottomsheets.sheets.adapters.actionpicker.ActionItem
 import com.arthurivanets.bottomsheets.sheets.adapters.actionpicker.BaseActionItem
+import com.arthurivanets.bottomsheets.sheets.config.ActionPickerConfig
 import com.arthurivanets.bottomsheets.sheets.config.Config
 import com.arthurivanets.bottomsheets.sheets.listeners.OnItemSelectedListener
 import com.arthurivanets.bottomsheets.sheets.model.Option
@@ -32,19 +33,16 @@ import com.arthurivanets.bottomsheets.sheets.model.Option
 /**
  * Initializes and shows the [Option] Action Picker Bottom Sheet.
  *
- * @param title bottom sheet header title (optional)
  * @param options bottom sheet action options
  * @param onItemSelectedListener item selection listener
  */
-@JvmOverloads
-fun Fragment.showActionPickerBottomSheet(title : CharSequence = "",
-                                         options : List<Option>,
+fun Fragment.showActionPickerBottomSheet(options : List<Option>,
                                          onItemSelectedListener : OnItemSelectedListener<Option>) : ActionPickerBottomSheet {
     assertAttachedToActivity()
 
-    return activity!!.showActionPickerBottomSheet(
-        title = title,
+    return showActionPickerBottomSheet(
         options = options,
+        config = Config.Builder(this.activity!!).build(),
         onItemSelectedListener = onItemSelectedListener
     )
 }
@@ -53,20 +51,38 @@ fun Fragment.showActionPickerBottomSheet(title : CharSequence = "",
 /**
  * Initializes and shows the [Option] Action Picker Bottom Sheet.
  *
- * @param title bottom sheet header title (optional)
  * @param options bottom sheet action options
+ * @param config bottom sheet configuration (optional)
+ * @param onItemSelectedListener item selection listener
+ */
+fun Fragment.showActionPickerBottomSheet(options : List<Option>,
+                                         config : ActionPickerConfig,
+                                         onItemSelectedListener : OnItemSelectedListener<Option>) : ActionPickerBottomSheet {
+    assertAttachedToActivity()
+
+    return activity!!.showActionPickerBottomSheet(
+        options = options,
+        config = config,
+        onItemSelectedListener = onItemSelectedListener
+    )
+}
+
+
+/**
+ * Initializes and shows the [Option] Action Picker Bottom Sheet.
+ *
+ * @param options bottom sheet action options
+ * @param config bottom sheet configuration (optional)
  * @param onItemSelectedListener item selection listener
  */
 @JvmOverloads
-fun Activity.showActionPickerBottomSheet(title : CharSequence = "",
-                                         options : List<Option>,
+fun Activity.showActionPickerBottomSheet(options : List<Option>,
+                                         config : ActionPickerConfig = Config.Builder(this).build(),
                                          onItemSelectedListener : OnItemSelectedListener<Option>) : ActionPickerBottomSheet {
     return ActionPickerBottomSheet.init(
         this,
         options.map(::ActionItem),
-        Config.Builder(this)
-            .title(title)
-            .build()
+        config
     ).also {
         it.setOnItemSelectedListener { onItemSelectedListener.onItemSelected(it.itemModel) }
         it.show()
@@ -78,19 +94,16 @@ fun Activity.showActionPickerBottomSheet(title : CharSequence = "",
  * Initializes and shows the Custom Action Picker Bottom Sheet.
  * Your custom action items of type [T] will be utilized.
  *
- * @param title bottom sheet header title (optional)
  * @param items your custom bottom sheet action items
  * @param onItemSelectedListener item selection listener
  */
-@JvmOverloads
-fun <T : BaseActionItem<*, *, *>> Fragment.showCustomActionPickerBottomSheet(title : CharSequence = "",
-                                                                             items : List<T>,
+fun <T : BaseActionItem<*, *, *>> Fragment.showCustomActionPickerBottomSheet(items : List<T>,
                                                                              onItemSelectedListener : OnItemSelectedListener<T>) : CustomActionPickerBottomSheet<T> {
     assertAttachedToActivity()
 
-    return activity!!.showCustomActionPickerBottomSheet(
-        title = title,
+    return showCustomActionPickerBottomSheet(
         items = items,
+        config = Config.Builder(this.activity!!).build(),
         onItemSelectedListener = onItemSelectedListener
     )
 }
@@ -100,20 +113,39 @@ fun <T : BaseActionItem<*, *, *>> Fragment.showCustomActionPickerBottomSheet(tit
  * Initializes and shows the Custom Action Picker Bottom Sheet.
  * Your custom action items of type [T] will be utilized.
  *
- * @param title bottom sheet header title (optional)
  * @param items your custom bottom sheet action items
+ * @param config bottom sheet configuration (optional)
+ * @param onItemSelectedListener item selection listener
+ */
+fun <T : BaseActionItem<*, *, *>> Fragment.showCustomActionPickerBottomSheet(items : List<T>,
+                                                                             config : ActionPickerConfig,
+                                                                             onItemSelectedListener : OnItemSelectedListener<T>) : CustomActionPickerBottomSheet<T> {
+    assertAttachedToActivity()
+
+    return activity!!.showCustomActionPickerBottomSheet(
+        items = items,
+        config = config,
+        onItemSelectedListener = onItemSelectedListener
+    )
+}
+
+
+/**
+ * Initializes and shows the Custom Action Picker Bottom Sheet.
+ * Your custom action items of type [T] will be utilized.
+ *
+ * @param items your custom bottom sheet action items
+ * @param config bottom sheet configuration (optional)
  * @param onItemSelectedListener item selection listener
  */
 @JvmOverloads
-fun <T : BaseActionItem<*, *, *>> Activity.showCustomActionPickerBottomSheet(title : CharSequence = "",
-                                                                             items : List<T>,
+fun <T : BaseActionItem<*, *, *>> Activity.showCustomActionPickerBottomSheet(items : List<T>,
+                                                                             config : ActionPickerConfig = Config.Builder(this).build(),
                                                                              onItemSelectedListener : OnItemSelectedListener<T>) : CustomActionPickerBottomSheet<T> {
     return CustomActionPickerBottomSheet.init(
         this,
         items,
-        Config.Builder(this)
-            .title(title)
-            .build()
+        config
     ).also {
         it.setOnItemSelectedListener(onItemSelectedListener)
         it.show()
