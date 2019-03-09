@@ -120,25 +120,26 @@ The first module - `bottomsheets-core` - is a base module the other modules depe
 
 The second module - `bottomsheets-sheets` - is a ... (depends on/ requires) the [Adapster]( TODO adapster gh reference )
 
+The third and last module - `bottomsheets-ktx` - is a ...
 //TODO <---
 
 ## Basic Custom Implementation
 
 **IMPORTANT**: 
 // Theme.NoActionBar (as the BottomSheet is a child in the View Hierarchy)
-//TODO <--- to be done
+//TODO <--- to be done (Basic Example of the Info Message Bottom Sheet)
 
 ## Action Picker Implementation
 
-//TODO <--- to be done
+//TODO <--- to be done (Basic example of how to use the Action Picker from the `bottomsheets-sheets`)
 
 ## Custom Action Picker Implementation
 
-//TODO <--- to be done
+//TODO <--- to be done (Basic example of how to use the Custom Action Picker from the `bottomsheets-sheets`)
 
 ## Advanced Use
 
-//TODO <--- to be done
+//TODO <--- to be done (Short description of the sample app)
 
 - **More uses**
 <br>See the [Sample app](https://github.com/arthur3486/bottomsheets/tree/master/app/src/main/java/com/arthurivanets/demo).
