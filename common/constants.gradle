@@ -32,8 +32,8 @@ project.ext {
     releaseRepoName = "maven"
     releaseUserOrg = "arthurlabs"
     releaseGroupId = "com.arthurivanets.bottomsheet"
-    releaseVersion = "1.0.1"
-    releaseVersionCode = 10
+    releaseVersion = "1.0.2"
+    releaseVersionCode = 11
     releaseWebsite = "https://github.com/arthur3486/bottomsheet"
     releaseLicense = ["Apache-2.0"]
 

@@ -140,7 +140,7 @@ public final class Config implements BaseConfig {
 
 
 
-    public static final class Builder implements BaseConfigBuilder<Builder, Config> {
+    public static final class Builder implements BaseConfigBuilder<Builder, BaseConfig> {
 
         private float dimAmount;
         private float sheetCornerRadius;
@@ -238,7 +238,7 @@ public final class Config implements BaseConfig {
 
         @NonNull
         @Override
-        public final Config build() {
+        public final BaseConfig build() {
             return new Config(this);
         }
 

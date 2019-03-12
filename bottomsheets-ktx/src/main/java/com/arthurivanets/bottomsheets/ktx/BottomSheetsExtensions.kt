@@ -25,7 +25,6 @@ import com.arthurivanets.bottomsheets.sheets.CustomActionPickerBottomSheet
 import com.arthurivanets.bottomsheets.sheets.adapters.actionpicker.ActionItem
 import com.arthurivanets.bottomsheets.sheets.adapters.actionpicker.BaseActionItem
 import com.arthurivanets.bottomsheets.sheets.config.ActionPickerConfig
-import com.arthurivanets.bottomsheets.sheets.config.Config
 import com.arthurivanets.bottomsheets.sheets.listeners.OnItemSelectedListener
 import com.arthurivanets.bottomsheets.sheets.model.Option
 
@@ -42,7 +41,7 @@ fun Fragment.showActionPickerBottomSheet(options : List<Option>,
 
     return showActionPickerBottomSheet(
         options = options,
-        config = Config.Builder(this.activity!!).build(),
+        config = actionPickerConfig(),
         onItemSelectedListener = onItemSelectedListener
     )
 }
@@ -77,7 +76,7 @@ fun Fragment.showActionPickerBottomSheet(options : List<Option>,
  */
 @JvmOverloads
 fun Activity.showActionPickerBottomSheet(options : List<Option>,
-                                         config : ActionPickerConfig = Config.Builder(this).build(),
+                                         config : ActionPickerConfig = actionPickerConfig(),
                                          onItemSelectedListener : OnItemSelectedListener<Option>) : ActionPickerBottomSheet {
     return ActionPickerBottomSheet.init(
         this,
@@ -103,7 +102,7 @@ fun <T : BaseActionItem<*, *, *>> Fragment.showCustomActionPickerBottomSheet(ite
 
     return showCustomActionPickerBottomSheet(
         items = items,
-        config = Config.Builder(this.activity!!).build(),
+        config = actionPickerConfig(),
         onItemSelectedListener = onItemSelectedListener
     )
 }
@@ -140,7 +139,7 @@ fun <T : BaseActionItem<*, *, *>> Fragment.showCustomActionPickerBottomSheet(ite
  */
 @JvmOverloads
 fun <T : BaseActionItem<*, *, *>> Activity.showCustomActionPickerBottomSheet(items : List<T>,
-                                                                             config : ActionPickerConfig = Config.Builder(this).build(),
+                                                                             config : ActionPickerConfig = actionPickerConfig(),
                                                                              onItemSelectedListener : OnItemSelectedListener<T>) : CustomActionPickerBottomSheet<T> {
     return CustomActionPickerBottomSheet.init(
         this,

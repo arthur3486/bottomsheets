@@ -173,7 +173,7 @@ public final class Config implements ActionPickerConfig {
 
 
 
-    public static final class Builder implements ActionPickerConfigBuilder<Builder, Config> {
+    public static final class Builder implements ActionPickerConfigBuilder<Builder, ActionPickerConfig> {
 
         private float dimAmount;
         private float sheetCornerRadius;
@@ -299,7 +299,7 @@ public final class Config implements ActionPickerConfig {
 
         @NonNull
         @Override
-        public final Config build() {
+        public final ActionPickerConfig build() {
             return new Config(this);
         }
 
