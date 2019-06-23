@@ -9,6 +9,7 @@ BottomSheets will help you make your application more appealing to your end user
 [![Platform](https://img.shields.io/badge/platform-Android-green.svg)](http://developer.android.com/index.html)
 ![](https://img.shields.io/badge/API-18%2B-green.svg?style=flat)
 ![](https://travis-ci.org/arthur3486/bottomsheets.svg?branch=master)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-BottomSheets-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/7720)
 
 ## Contents
 
