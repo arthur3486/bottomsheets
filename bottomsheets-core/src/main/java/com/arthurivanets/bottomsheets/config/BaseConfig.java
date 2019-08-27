@@ -60,6 +60,20 @@ public interface BaseConfig {
     float getTopGapSize();
 
     /**
+     * Retrieves the extra padding top.
+     *
+     * @return the extra padding from the top.
+     */
+    float getExtraPaddingTop();
+
+    /**
+     * Retrieves the extra padding bottom.
+     *
+     * @return the extra padding from the bottom.
+     */
+    float getExtraPaddingBottom();
+
+    /**
      * Retrieves the sheet's maximum width.
      *
      * @return the sheet's maximum width

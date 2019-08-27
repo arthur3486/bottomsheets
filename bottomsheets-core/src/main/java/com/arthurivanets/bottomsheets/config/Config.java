@@ -40,6 +40,8 @@ public final class Config implements BaseConfig {
     private final float sheetCornerRadius;
     private final float maxSheetWidth;
     private final float topGapSize;
+    private final float extraPaddingTop;
+    private final float extraPaddingBottom;
 
     private final int dimColor;
     private final int sheetBackgroundColor;
@@ -57,6 +59,8 @@ public final class Config implements BaseConfig {
         this.sheetCornerRadius = builder.sheetCornerRadius;
         this.maxSheetWidth = builder.maxSheetWidth;
         this.topGapSize = builder.topGapSize;
+        this.extraPaddingTop = builder.extraPaddingTop;
+        this.extraPaddingBottom = builder.extraPaddingBottom;
         this.dimColor = builder.dimColor;
         this.sheetBackgroundColor = builder.sheetBackgroundColor;
         this.animationDuration = builder.animationDuration;
@@ -86,6 +90,22 @@ public final class Config implements BaseConfig {
     @Override
     public final float getTopGapSize() {
         return this.topGapSize;
+    }
+
+
+
+
+    @Override
+    public final float getExtraPaddingTop() {
+        return this.extraPaddingTop;
+    }
+
+
+
+
+    @Override
+    public final float getExtraPaddingBottom() {
+        return this.extraPaddingBottom;
     }
 
 
@@ -146,6 +166,8 @@ public final class Config implements BaseConfig {
         private float sheetCornerRadius;
         private float maxSheetWidth;
         private float topGapSize;
+        private float extraPaddingTop;
+        private float extraPaddingBottom;
 
         private int dimColor;
         private int sheetBackgroundColor;
@@ -164,6 +186,8 @@ public final class Config implements BaseConfig {
             this.dimAmount = DEFAULT_DIM_AMOUNT;
             this.sheetCornerRadius = resources.getDimension(R.dimen.bottom_sheet_sheet_corner_radius);
             this.topGapSize = 0;
+            this.extraPaddingTop = 0;
+            this.extraPaddingBottom = 0;
             this.maxSheetWidth = resources.getDimension(R.dimen.bottom_sheet_max_sheet_width);
             this.dimColor = ContextCompat.getColor(context, R.color.bottom_sheet_dim_color);
             this.sheetBackgroundColor = ContextCompat.getColor(context, R.color.bottom_sheet_background_color);
@@ -190,6 +214,22 @@ public final class Config implements BaseConfig {
         @NonNull
         public final Builder topGapSize(float topGapSize) {
             this.topGapSize = topGapSize;
+            return this;
+        }
+
+
+        @NonNull
+        @Override
+        public final Builder extraPaddingTop(float extraPaddingTop) {
+            this.extraPaddingTop = extraPaddingTop;
+            return this;
+        }
+
+
+        @NonNull
+        @Override
+        public final Builder extraPaddingBottom(float extraPaddingBottom) {
+            this.extraPaddingBottom = extraPaddingBottom;
             return this;
         }
 

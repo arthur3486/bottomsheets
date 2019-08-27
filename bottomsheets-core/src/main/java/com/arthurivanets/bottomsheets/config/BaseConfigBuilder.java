@@ -76,6 +76,24 @@ public interface BaseConfigBuilder<BT extends BaseConfigBuilder, CT> extends Bui
     BT maxSheetWidth(float maxWidth);
 
     /**
+     * Sets the top padding that will be added to the bottom sheet view container.
+     *
+     * @param extraPaddingTop the extra padding from the top
+     * @return the current instance of the configuration builder (for chaining purposes)
+     */
+    @NonNull
+    BT extraPaddingTop(float extraPaddingTop);
+
+    /**
+     * Sets the bottom padding that will be added to the bottom sheet view container.
+     *
+     * @param extraPaddingBottom the extra padding from the bottom
+     * @return the current instance of the configuration builder (for chaining purposes)
+     */
+    @NonNull
+    BT extraPaddingBottom(float extraPaddingBottom);
+
+    /**
      * Sets the background dimming color.
      *
      * @param dimColor the color to be used for the background dimming

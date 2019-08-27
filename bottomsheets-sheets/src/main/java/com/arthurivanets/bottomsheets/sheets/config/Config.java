@@ -42,6 +42,8 @@ public final class Config implements ActionPickerConfig {
     private final float maxSheetWidth;
     private final float topGapSize;
     private final float titleTextSize;
+    private final float extraPaddingTop;
+    private final float extraPaddingBottom;
 
     private final int dimColor;
     private final int sheetBackgroundColor;
@@ -62,6 +64,8 @@ public final class Config implements ActionPickerConfig {
         this.sheetCornerRadius = builder.sheetCornerRadius;
         this.maxSheetWidth = builder.maxSheetWidth;
         this.topGapSize = builder.topGapSize;
+        this.extraPaddingTop = builder.extraPaddingTop;
+        this.extraPaddingBottom = builder.extraPaddingBottom;
         this.titleTextSize = builder.titleTextSize;
         this.dimColor = builder.dimColor;
         this.sheetBackgroundColor = builder.sheetBackgroundColor;
@@ -125,6 +129,22 @@ public final class Config implements ActionPickerConfig {
 
 
     @Override
+    public final float getExtraPaddingTop() {
+        return this.extraPaddingTop;
+    }
+
+
+
+
+    @Override
+    public final float getExtraPaddingBottom() {
+        return this.extraPaddingBottom;
+    }
+
+
+
+
+    @Override
     public final float getMaxSheetWidth() {
         return this.maxSheetWidth;
     }
@@ -180,6 +200,8 @@ public final class Config implements ActionPickerConfig {
         private float maxSheetWidth;
         private float topGapSize;
         private float titleTextSize;
+        private float extraPaddingTop;
+        private float extraPaddingBottom;
 
         private int dimColor;
         private int sheetBackgroundColor;
@@ -201,6 +223,8 @@ public final class Config implements ActionPickerConfig {
             this.dimAmount = DEFAULT_DIM_AMOUNT;
             this.sheetCornerRadius = resources.getDimension(R.dimen.bottom_sheet_sheet_corner_radius);
             this.topGapSize = 0;
+            this.extraPaddingTop = 0;
+            this.extraPaddingBottom = 0;
             this.titleTextSize = resources.getDimensionPixelSize(R.dimen.action_picker_bottom_sheet_title_text_size);
             this.maxSheetWidth = resources.getDimension(R.dimen.bottom_sheet_max_sheet_width);
             this.dimColor = ContextCompat.getColor(context, R.color.bottom_sheet_dim_color);
@@ -251,6 +275,22 @@ public final class Config implements ActionPickerConfig {
         @NonNull
         public final Builder topGapSize(float topGapSize) {
             this.topGapSize = topGapSize;
+            return this;
+        }
+
+
+        @NonNull
+        @Override
+        public final Builder extraPaddingTop(float extraPaddingTop) {
+            this.extraPaddingTop = extraPaddingTop;
+            return this;
+        }
+
+
+        @NonNull
+        @Override
+        public final Builder extraPaddingBottom(float extraPaddingBottom) {
+            this.extraPaddingBottom = extraPaddingBottom;
             return this;
         }
 

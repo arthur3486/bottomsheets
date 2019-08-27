@@ -176,6 +176,12 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         mBottomSheetView = new FrameLayout(getContext());
         mBottomSheetView.setLayoutParams(generateDefaultLayoutParams());
         mBottomSheetView.setBackground(createBottomSheetBackgroundDrawable());
+        mBottomSheetView.setPadding(
+            mBottomSheetView.getPaddingLeft(),
+            ((int) mConfig.getExtraPaddingTop()),
+            mBottomSheetView.getPaddingRight(),
+            ((int) mConfig.getExtraPaddingBottom())
+        );
 
         // Creating the actual sheet content view
         final View createdSheetView = Preconditions.checkNonNull(onCreateSheetContentView(getContext()));
@@ -347,38 +353,42 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
 
 
     private void postViewShowingAction(final boolean animate) {
-        postPendingViewManagementAction(new Runnable() {
-            @Override
-            public void run() {
-                if(animate) {
-                    if(!State.EXPANDED.equals(mState) && !State.EXPANDING.equals(mState)) {
-                        setUiState(State.COLLAPSED);
-                        animateStateTransition(State.EXPANDING);
-                    }
-                } else {
-                    setUiState(mState = State.EXPANDED);
-                }
+        postPendingViewManagementAction(() -> expandSheet(animate));
+    }
+
+
+
+
+    private void expandSheet(final boolean animate) {
+        if(animate) {
+            if(!State.EXPANDED.equals(mState) && !State.EXPANDING.equals(mState)) {
+                setUiState(State.COLLAPSED);
+                animateStateTransition(State.EXPANDING);
             }
-        });
+        } else {
+            setUiState(mState = State.EXPANDED);
+        }
     }
 
 
 
 
     private void postViewDismissingAction(final boolean animate) {
-        postPendingViewManagementAction(new Runnable() {
-            @Override
-            public void run() {
-                if(animate) {
-                    if(!State.COLLAPSED.equals(mState) && !State.COLLAPSING.equals(mState)) {
-                        animateStateTransition(State.COLLAPSING);
-                    }
-                } else {
-                    removeFromContainer();
-                    setUiState(mState = State.COLLAPSED);
-                }
+        postPendingViewManagementAction(() -> collapseSheet(animate));
+    }
+
+
+
+
+    private void collapseSheet(final boolean animate) {
+        if(animate) {
+            if(!State.COLLAPSED.equals(mState) && !State.COLLAPSING.equals(mState)) {
+                animateStateTransition(State.COLLAPSING);
             }
-        });
+        } else {
+            removeFromContainer();
+            setUiState(mState = State.COLLAPSED);
+        }
     }
 
 
@@ -430,15 +440,12 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
 
         // creating and starting a brand-new one
         mAnimator = ValueAnimator.ofFloat(startValue, endValue);
-        mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                final float animatedValue = (Float) valueAnimator.getAnimatedValue();
-                final float newY = (startY + (animatedValue * (endY - startY)));
+        mAnimator.addUpdateListener(valueAnimator -> {
+            final float animatedValue = (Float) valueAnimator.getAnimatedValue();
+            final float newY = (startY + (animatedValue * (endY - startY)));
 
-                mBottomSheetView.setY(newY);
-                setBackgroundAlpha(animatedValue);
-            }
+            mBottomSheetView.setY(newY);
+            setBackgroundAlpha(animatedValue);
         });
         mAnimator.addListener(new AnimatorListenerAdapter() {
 
