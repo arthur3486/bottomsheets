@@ -30,22 +30,33 @@ import com.arthurivanets.bottomsheets.sheets.adapters.actionpicker.BaseActionIte
 import com.arthurivanets.demo.R
 import com.arthurivanets.demo.model.Person
 
-class PersonItem(itemModel : Person) : BaseActionItem<Person, PersonItemViewHolder, ActionPickerItemResources>(itemModel), Trackable<Long> {
+class PersonItem(itemModel : Person) : BaseActionItem<
+    Person,
+    PersonItemViewHolder,
+    ActionPickerItemResources
+>(itemModel), Trackable<Long> {
 
 
-    override fun init(adapter : Adapter<out Item<RecyclerView.ViewHolder, ItemResources>>?,
-                      parent : ViewGroup,
-                      inflater : LayoutInflater,
-                      resources : ActionPickerItemResources?) : PersonItemViewHolder {
-        return PersonItemViewHolder(inflater.inflate(
-            layout,
-            parent,
-            false
-        ))
+    override fun init(
+        adapter : Adapter<out Item<RecyclerView.ViewHolder, ItemResources>>?,
+        parent : ViewGroup,
+        inflater : LayoutInflater,
+        resources : ActionPickerItemResources?
+    ) : PersonItemViewHolder {
+        return PersonItemViewHolder(
+            inflater.inflate(
+                layout,
+                parent,
+                false
+            )
+        )
     }
 
 
-    override fun setOnItemClickListener(viewHolder : PersonItemViewHolder, onItemClickListener : OnItemClickListener<BaseActionItem<Person, PersonItemViewHolder, ActionPickerItemResources>>?) {
+    override fun setOnItemClickListener(
+        viewHolder : PersonItemViewHolder,
+        onItemClickListener : OnItemClickListener<BaseActionItem<Person, PersonItemViewHolder, ActionPickerItemResources>>?
+    ) {
         viewHolder.itemView.setOnItemClickListener(this, 0, onItemClickListener)
     }
 

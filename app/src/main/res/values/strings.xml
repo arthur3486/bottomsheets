@@ -23,6 +23,8 @@
     <string name="button_title_confirmation_bottom_sheet">Confirmation Bottom Sheet</string>
     <string name="button_title_actions_bottom_sheet">Actions Bottom Sheet</string>
     <string name="button_title_custom_actions_bottom_sheet">Custom Actions Bottom Sheet</string>
+    <string name="button_title_actions_bottom_sheet2">Actions Bottom Sheet 2</string>
+    <string name="button_title_custom_actions_bottom_sheet2">Custom Actions Bottom Sheet 2</string>
 
     <string name="person_item_username_template">\@%1$s</string>
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="actions_divider_color">#cccccc</color>
+    <color name="action_item_icon">#757575</color>
+    <color name="action_item_text">#080808</color>
+    <color name="action_item_overlay">#30000000</color>
+
+</resources>

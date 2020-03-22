@@ -24,7 +24,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import com.arthurivanets.adapster.listeners.OnItemClickListener;
 import com.arthurivanets.adapster.model.BaseItem;
 import com.arthurivanets.bottomsheets.BaseBottomSheet;
 import com.arthurivanets.bottomsheets.sheets.adapters.actionpicker.ActionPickerBottomSheetRecyclerViewAdapter;
@@ -71,8 +70,6 @@ abstract class BaseActionPickerBottomSheet<
     private OnItemSelectedListener<IT> mOnItemSelectedListener;
 
 
-
-
     protected BaseActionPickerBottomSheet(@NonNull Activity context,
                                           @NonNull List<IT> items,
                                           @NonNull IR itemResources,
@@ -84,10 +81,8 @@ abstract class BaseActionPickerBottomSheet<
         mItemResources = Preconditions.checkNonNull(itemResources);
         mShouldDismissOnItemSelection = true;
 
-        onContentViewCreated(context);
+        onSheetContentViewCreated();
     }
-
-
 
 
     @NonNull
@@ -101,26 +96,11 @@ abstract class BaseActionPickerBottomSheet<
     }
 
 
-
-
-    /**
-     * <br>
-     *      Gets called right after the successful creation of the Content View.
-     * <br>
-     * <br>
-     *      (It's the perfect place for you to lookup and initialize your layout views)
-     * <br>
-     * <br>
-     *      <b>IMPORTANT</b>: This method should always call it's super class method implementation.
-     * <br>
-     */
     @CallSuper
-    protected void onContentViewCreated(@NonNull Context context) {
+    protected void onSheetContentViewCreated() {
         initTitleView();
         initRecyclerView();
     }
-
-
 
 
     private void initTitleView() {
@@ -132,8 +112,6 @@ abstract class BaseActionPickerBottomSheet<
     }
 
 
-
-
     private void initRecyclerView() {
         final RecyclerView recyclerView = findViewById(R.id.recycler_view);
         disableAnimations(recyclerView);
@@ -142,13 +120,9 @@ abstract class BaseActionPickerBottomSheet<
     }
 
 
-
-
     private RecyclerView.LayoutManager initLayoutManager(Context context) {
         return new LinearLayoutManager(context);
     }
-
-
 
 
     private ActionPickerBottomSheetRecyclerViewAdapter<IT, VH, IR> initAdapter(Context context) {
@@ -157,17 +131,10 @@ abstract class BaseActionPickerBottomSheet<
             mItems,
             mItemResources
         );
-        adapter.setOnItemClickListener(new OnItemClickListener<IT>() {
-            @Override
-            public void onItemClicked(View view, IT item, int position) {
-                onActionItemClicked(item);
-            }
-        });
+        adapter.setOnItemClickListener((view, item, position) -> onActionItemClicked(item));
 
         return adapter;
     }
-
-
 
 
     private void onActionItemClicked(IT item) {
@@ -179,15 +146,11 @@ abstract class BaseActionPickerBottomSheet<
     }
 
 
-
-
     private void reportItemSelected(IT item) {
         if(mOnItemSelectedListener != null) {
             mOnItemSelectedListener.onItemSelected(item);
         }
     }
-
-
 
 
     /**
@@ -200,8 +163,6 @@ abstract class BaseActionPickerBottomSheet<
     protected abstract int getContentViewLayoutResourceId();
 
 
-
-
     /**
      * Registers the action item selection listener, to be invoked when the selectable action item is clicked (selected).
      *
@@ -210,8 +171,6 @@ abstract class BaseActionPickerBottomSheet<
     public final void setOnItemSelectedListener(@Nullable OnItemSelectedListener<IT> onItemSelectedListener) {
         mOnItemSelectedListener = onItemSelectedListener;
     }
-
-
 
 
     /**
@@ -223,8 +182,6 @@ abstract class BaseActionPickerBottomSheet<
     public final void setDismissOnItemSelection(boolean shouldDismissOnItemSelection) {
         mShouldDismissOnItemSelection = shouldDismissOnItemSelection;
     }
-
-
 
 
 }

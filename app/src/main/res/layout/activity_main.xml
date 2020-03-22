@@ -30,4 +30,16 @@
         android:layout_height="wrap_content"
         android:text="@string/button_title_custom_actions_bottom_sheet"/>
 
+    <Button
+        android:id="@+id/actionsBottomSheet2Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_title_actions_bottom_sheet2"/>
+
+    <Button
+        android:id="@+id/customActionsBottomSheet2Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_title_custom_actions_bottom_sheet2"/>
+
 </LinearLayout>

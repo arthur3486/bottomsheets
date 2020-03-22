@@ -18,14 +18,18 @@ package com.arthurivanets.demo.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.arthurivanets.bottomsheets.BaseBottomSheet
 import com.arthurivanets.bottomsheets.BottomSheet
 import com.arthurivanets.bottomsheets.ktx.actionPickerConfig
 import com.arthurivanets.bottomsheets.ktx.showActionPickerBottomSheet
 import com.arthurivanets.bottomsheets.ktx.showCustomActionPickerBottomSheet
 import com.arthurivanets.bottomsheets.sheets.listeners.OnItemSelectedListener
+import com.arthurivanets.bottomsheets.sheets2.ActionId
+import com.arthurivanets.bottomsheets.sheets2.dsl.actionPickerBottomSheet
+import com.arthurivanets.bottomsheets.sheets2.dsl.customActionPickerBottomSheet
 import com.arthurivanets.demo.R
 import com.arthurivanets.demo.adapters.persons.PersonItem
+import com.arthurivanets.demo.adapters.persons.PersonItem2
+import com.arthurivanets.demo.model.PersonAction
 import com.arthurivanets.demo.ui.widget.SimpleCustomBottomSheet
 import com.arthurivanets.demo.util.misc.shortToast
 import com.arthurivanets.demo.util.providers.ActionsProvider
@@ -36,7 +40,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
 
-    private var bottomSheet : BaseBottomSheet? = null
+    private var bottomSheet : BottomSheet? = null
 
 
     override fun onCreate(savedInstanceState : Bundle?) {
@@ -61,6 +65,14 @@ class MainActivity : AppCompatActivity() {
 
         customActionsBottomSheetBtn.setOnClickListener {
             showPeopleBottomSheet()
+        }
+
+        actionsBottomSheet2Btn.setOnClickListener {
+            showActionsBottomSheet2()
+        }
+
+        customActionsBottomSheet2Btn.setOnClickListener {
+            showPeopleBottomSheet2()
         }
     }
 
@@ -99,6 +111,38 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    private fun showActionsBottomSheet2() {
+        bottomSheet = actionPickerBottomSheet {
+            action(
+                id = ActionId(1),
+                iconId = R.drawable.ic_outline_local_printshop_24px,
+                titleId = R.string.action_print
+            )
+            action(
+                id = ActionId(2),
+                iconId = R.drawable.ic_outline_save_24px,
+                titleId = R.string.action_save
+            )
+            action(
+                id = ActionId(3),
+                iconId = R.drawable.ic_outline_offline_bolt_24px,
+                titleId = R.string.action_recharge
+            )
+            action(
+                id = ActionId(4),
+                iconId = R.drawable.ic_outline_thumb_up_24px,
+                titleId = R.string.action_like
+            )
+            action(
+                id = ActionId(5),
+                iconId = R.drawable.ic_outline_thumb_down_24px,
+                titleId = R.string.action_dislike
+            )
+            onItemClickListener = { shortToast("ActionID: ${it.id}") }
+        }.also(BottomSheet::show)
+    }
+
+
     private fun showPeopleBottomSheet() {
         dismissBottomSheet()
 
@@ -108,6 +152,19 @@ class MainActivity : AppCompatActivity() {
                 shortToast(it.itemModel.fullName)
             }
         )
+    }
+
+
+    private fun showPeopleBottomSheet2() {
+        bottomSheet = customActionPickerBottomSheet {
+            PersonProvider.getPeople()
+                .asSequence()
+                .map(::PersonAction)
+                .map(::PersonItem2)
+                .forEach { item(it) }
+
+            onItemClickListener = { shortToast("Person Clicked: [id: ${it.id}]") }
+        }.also(BottomSheet::show)
     }
 
 
