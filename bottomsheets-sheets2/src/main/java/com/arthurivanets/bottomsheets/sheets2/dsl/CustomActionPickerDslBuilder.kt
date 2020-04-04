@@ -19,6 +19,7 @@ package com.arthurivanets.bottomsheets.sheets2.dsl
 import android.app.Activity
 import android.content.Context
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.arthurivanets.bottomsheets.BottomSheet
 import com.arthurivanets.bottomsheets.sheets2.Action
 import com.arthurivanets.bottomsheets.sheets2.ActionPickerBottomSheet
@@ -69,7 +70,24 @@ class CustomActionPickerConfigBuilder internal constructor(
 
 
     override fun createItemThemeApplier() : ItemThemeApplier {
-        return itemThemeApplier
+        return CustomItemThemeApplier(dividerColor, itemThemeApplier)
+    }
+
+
+}
+
+
+private class CustomItemThemeApplier(
+    private val dividerColor : Int,
+    private val itemThemeApplier : ItemThemeApplier
+) : ItemThemeApplier {
+
+
+    override fun invoke(item : Item<*>, viewHolder : RecyclerView.ViewHolder) {
+        when (viewHolder) {
+            is DividerItem.ViewHolder -> viewHolder.setColor(dividerColor)
+            else -> itemThemeApplier(item, viewHolder)
+        }
     }
 
 
