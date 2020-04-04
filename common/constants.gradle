@@ -17,7 +17,7 @@
 project.ext {
     compileSdk = 29
     targetSdk = 29
-    minSdk = 18
+    minSdk = 21
 
     supportLibraryVersion = "1.1.0"
     recyclerViewVersion = "1.1.0"
@@ -32,8 +32,8 @@ project.ext {
     releaseRepoName = "maven"
     releaseUserOrg = "arthurlabs"
     releaseGroupId = "com.arthurivanets.bottomsheet"
-    releaseVersion = "1.1.4"
-    releaseVersionCode = 16
+    releaseVersion = "1.2.0"
+    releaseVersionCode = 17
     releaseWebsite = "https://github.com/arthur3486/bottomsheet"
     releaseLicense = ["Apache-2.0"]
 

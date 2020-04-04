@@ -28,6 +28,7 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowInsets;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 
@@ -101,6 +102,7 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         initContainer(hostActivity);
         initResources(hostActivity);
         initBottomSheet();
+        requestWindowInsetsWhenAttached();
     }
 
 
@@ -171,6 +173,41 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         // adding the created views
         mBottomSheetView.addView(createdSheetView);
         addView(mBottomSheetView);
+    }
+
+
+    @Override
+    public final WindowInsets onApplyWindowInsets(WindowInsets insets) {
+        mBottomSheetView.setPadding(
+            mBottomSheetView.getPaddingLeft(),
+            mBottomSheetView.getPaddingTop(),
+            mBottomSheetView.getPaddingRight(),
+            (int) (insets.getSystemWindowInsetBottom() + mConfig.getExtraPaddingBottom())
+        );
+
+        return insets;
+    }
+
+
+    private void requestWindowInsetsWhenAttached() {
+        if(isAttachedToWindow()) {
+            requestApplyInsets();
+        } else {
+            addOnAttachStateChangeListener(new OnAttachStateChangeListener() {
+
+                @Override
+                public void onViewAttachedToWindow(View view) {
+                    removeOnAttachStateChangeListener(this);
+                    requestApplyInsets();
+                }
+
+                @Override
+                public void onViewDetachedFromWindow(View view) {
+                    // do nothing
+                }
+
+            });
+        }
     }
 
 
