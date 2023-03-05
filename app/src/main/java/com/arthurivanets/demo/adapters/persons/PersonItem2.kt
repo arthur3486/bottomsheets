@@ -15,10 +15,10 @@ import com.arthurivanets.demo.util.glide.PersonImageTransformator
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-internal class PersonItem2(action : PersonAction) : AbstractItem<PersonAction, PersonItem2.ViewHolder>(action) {
+internal class PersonItem2(action: PersonAction) :
+    AbstractItem<PersonAction, PersonItem2.ViewHolder>(action) {
 
-
-    override fun create(inflater : LayoutInflater, parent : ViewGroup) : RecyclerView.ViewHolder {
+    override fun create(inflater: LayoutInflater, parent: ViewGroup): RecyclerView.ViewHolder {
         return ViewHolder(
             inflater.inflate(
                 R.layout.item_person,
@@ -28,27 +28,29 @@ internal class PersonItem2(action : PersonAction) : AbstractItem<PersonAction, P
         )
     }
 
-
-    override fun performBinding(viewHolder : ViewHolder) {
+    override fun performBinding(viewHolder: ViewHolder) {
         viewHolder.bindData(model.person)
     }
 
-
-    class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView), HasListeners {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), HasListeners {
 
         private val imageIv = itemView.findViewById<ImageView>(R.id.imageIv)
         private val fullNameTv = itemView.findViewById<TextView>(R.id.fullNameTv)
         private val usernameTv = itemView.findViewById<TextView>(R.id.usernameTv)
 
-        internal fun bindData(person : Person) {
+        internal fun bindData(person: Person) {
             fullNameTv.text = person.fullName
-            usernameTv.text = usernameTv.context.getString(R.string.person_item_username_template, person.username)
+            usernameTv.text = usernameTv.context.getString(
+                R.string.person_item_username_template,
+                person.username
+            )
 
             loadImage(person.imageResourceId)
         }
 
-        private fun loadImage(imageResourceId : Int) {
-            val imageSize = imageIv.context.resources.getDimensionPixelSize(R.dimen.person_item_image_size)
+        private fun loadImage(imageResourceId: Int) {
+            val imageSize =
+                imageIv.context.resources.getDimensionPixelSize(R.dimen.person_item_image_size)
 
             Glide.with(imageIv)
                 .load(imageResourceId)
@@ -62,6 +64,5 @@ internal class PersonItem2(action : PersonAction) : AbstractItem<PersonAction, P
         }
 
     }
-
 
 }

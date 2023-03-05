@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2017 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,18 +20,16 @@ package com.arthurivanets.bottomsheets.ktx
 
 import androidx.fragment.app.Fragment
 
-
 /**
  * Verifies if the current [Fragment] is attached to a parent [android.app.Activity].
  *
  * @throws IllegalStateException if the [Fragment] is not attached to a parent [android.app.Activity]
  */
 fun Fragment.assertAttachedToActivity() {
-    if(activity == null) {
+    if (activity == null) {
         throw IllegalStateException("The Fragment is not attached to the Activity.")
     }
 }
-
 
 /**
  * Verifies if the current [Fragment] is attached to a [android.content.Context].
@@ -39,7 +37,7 @@ fun Fragment.assertAttachedToActivity() {
  * @throws IllegalStateException if the [Fragment] is not attached to a [android.content.Context]
  */
 fun Fragment.assertAttachedToContext() {
-    if(context == null) {
+    if (context == null) {
         throw IllegalStateException("The Fragment is not attached to the Context.")
     }
 }

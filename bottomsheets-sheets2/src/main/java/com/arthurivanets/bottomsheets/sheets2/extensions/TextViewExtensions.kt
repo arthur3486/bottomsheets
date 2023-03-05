@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2019 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,12 +19,11 @@ package com.arthurivanets.bottomsheets.sheets2.extensions
 import android.graphics.drawable.Drawable
 import android.widget.TextView
 
-
 internal fun TextView.updateCompoundDrawables(
-    start : Drawable? = compoundDrawablesRelative[0],
-    top : Drawable? = compoundDrawablesRelative[1],
-    end : Drawable? = compoundDrawablesRelative[2],
-    bottom : Drawable? = compoundDrawablesRelative[3]
+    start: Drawable? = compoundDrawablesRelative[0],
+    top: Drawable? = compoundDrawablesRelative[1],
+    end: Drawable? = compoundDrawablesRelative[2],
+    bottom: Drawable? = compoundDrawablesRelative[3]
 ) {
     setCompoundDrawablesRelativeWithIntrinsicBounds(
         start,
@@ -34,8 +33,7 @@ internal fun TextView.updateCompoundDrawables(
     )
 }
 
-
-internal fun TextView.colorCompoundDrawables(color : Int) {
+internal fun TextView.colorCompoundDrawables(color: Int) {
     val drawables = compoundDrawablesRelative
 
     if (drawables.size == 4) {

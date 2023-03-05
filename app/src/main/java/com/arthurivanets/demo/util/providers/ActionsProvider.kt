@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2017 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,6 @@ import com.arthurivanets.demo.R
 
 object ActionsProvider {
 
-
     object Id {
 
         const val PRINT = 1L
@@ -33,45 +32,53 @@ object ActionsProvider {
 
     }
 
-
-    fun getActionOptions(context : Context) : List<Option> {
+    fun getActionOptions(context: Context): List<Option> {
         return ArrayList<Option>().apply {
             // Printing Option
-            add(context.createOption(
-                Id.PRINT,
-                R.drawable.ic_outline_local_printshop_24px,
-                context.getString(R.string.action_print)
-            ))
+            add(
+                context.createOption(
+                    Id.PRINT,
+                    R.drawable.ic_outline_local_printshop_24px,
+                    context.getString(R.string.action_print)
+                )
+            )
 
             // Saving Option
-            add(context.createOption(
-                Id.SAVE,
-                R.drawable.ic_outline_save_24px,
-                context.getString(R.string.action_save)
-            ))
+            add(
+                context.createOption(
+                    Id.SAVE,
+                    R.drawable.ic_outline_save_24px,
+                    context.getString(R.string.action_save)
+                )
+            )
 
             // Recharging Option
-            add(context.createOption(
-                Id.RECHARGE,
-                R.drawable.ic_outline_offline_bolt_24px,
-                context.getString(R.string.action_recharge)
-            ))
+            add(
+                context.createOption(
+                    Id.RECHARGE,
+                    R.drawable.ic_outline_offline_bolt_24px,
+                    context.getString(R.string.action_recharge)
+                )
+            )
 
             // Liking Option
-            add(context.createOption(
-                Id.LIKE,
-                R.drawable.ic_outline_thumb_up_24px,
-                context.getString(R.string.action_like)
-            ))
+            add(
+                context.createOption(
+                    Id.LIKE,
+                    R.drawable.ic_outline_thumb_up_24px,
+                    context.getString(R.string.action_like)
+                )
+            )
 
             // Disliking Option
-            add(context.createOption(
-                Id.DISLIKE,
-                R.drawable.ic_outline_thumb_down_24px,
-                context.getString(R.string.action_dislike)
-            ))
+            add(
+                context.createOption(
+                    Id.DISLIKE,
+                    R.drawable.ic_outline_thumb_down_24px,
+                    context.getString(R.string.action_dislike)
+                )
+            )
         }
     }
-
 
 }

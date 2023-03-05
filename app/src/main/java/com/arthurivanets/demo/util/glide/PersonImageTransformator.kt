@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2017 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,28 +25,28 @@ import java.security.MessageDigest
 
 class PersonImageTransformator : BitmapTransformation() {
 
-
     companion object {
 
         const val TAG = "ProfileImageTransformator"
         const val ID = "com.arthurivanets.demo.$TAG"
-        @JvmStatic val ID_BYTES = ID.toByteArray(Charset.defaultCharset())
+
+        @JvmStatic
+        val ID_BYTES = ID.toByteArray(Charset.defaultCharset())
 
     }
 
-
-    override fun transform(pool : BitmapPool,
-                           toTransform : Bitmap,
-                           outWidth : Int,
-                           outHeight : Int) : Bitmap {
+    override fun transform(
+        pool: BitmapPool,
+        toTransform: Bitmap,
+        outWidth: Int,
+        outHeight: Int
+    ): Bitmap {
         // cropping the actual image
         return BitmapUtils.getCircularBitmap(toTransform)
     }
 
-
-    override fun updateDiskCacheKey(messageDigest : MessageDigest) {
+    override fun updateDiskCacheKey(messageDigest: MessageDigest) {
         messageDigest.update(ID_BYTES)
     }
-
 
 }

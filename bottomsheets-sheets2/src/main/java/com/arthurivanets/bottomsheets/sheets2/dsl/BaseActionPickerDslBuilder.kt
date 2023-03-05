@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2019 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,29 +32,27 @@ import com.arthurivanets.bottomsheets.sheets2.adapter.ItemThemeApplier
 import com.arthurivanets.bottomsheets.sheets2.extensions.getCompatColor
 import com.arthurivanets.bottomsheets.sheets2.extensions.getDimension
 
-
 @DslMarker
 annotation class ActionPickerConfigBuilderDsl
 
-
 internal data class ActionPickerConfig(
-    private val _dimColor : Int,
-    private val _dimAmount : Float,
-    private val _topGapSize : Float,
-    private val _extraPaddingTop : Float,
-    private val _extraPaddingBottom : Float,
-    private val _maxSheetWidth : Float,
-    private val _sheetBackgroundColor : Int,
-    private val _sheetCornerRadius : Float,
-    private val _sheetAnimationDuration : Long,
-    private val _sheetAnimationInterpolator : Interpolator,
-    private val _isDismissableOnTouchOutside : Boolean,
-    val isDismissableOnItemClick : Boolean,
-    val headerView : AuxiliaryView?,
-    val dividerColor : Int,
-    val items : List<Item<*>>,
-    val itemThemeApplier : ItemThemeApplier?,
-    val onItemClickListener : ((Action) -> Unit)?
+    private val _dimColor: Int,
+    private val _dimAmount: Float,
+    private val _topGapSize: Float,
+    private val _extraPaddingTop: Float,
+    private val _extraPaddingBottom: Float,
+    private val _maxSheetWidth: Float,
+    private val _sheetBackgroundColor: Int,
+    private val _sheetCornerRadius: Float,
+    private val _sheetAnimationDuration: Long,
+    private val _sheetAnimationInterpolator: Interpolator,
+    private val _isDismissableOnTouchOutside: Boolean,
+    val isDismissableOnItemClick: Boolean,
+    val headerView: AuxiliaryView?,
+    val dividerColor: Int,
+    val items: List<Item<*>>,
+    val itemThemeApplier: ItemThemeApplier?,
+    val onItemClickListener: ((Action) -> Unit)?
 ) : BaseConfig {
 
     override fun getDimColor() = _dimColor
@@ -81,55 +79,50 @@ internal data class ActionPickerConfig(
 
 }
 
-
 @ActionPickerConfigBuilderDsl
 abstract class AbstractActionPickerConfigBuilder internal constructor(
-    protected val context : Context
+    protected val context: Context
 ) {
 
-
-    private var headerView : AuxiliaryView? = null
-    protected val items : MutableList<Item<*>> = mutableListOf()
-
-    @ColorInt
-    var dividerColor : Int = context.getCompatColor(R.color.actions_divider_color)
+    private var headerView: AuxiliaryView? = null
+    protected val items: MutableList<Item<*>> = mutableListOf()
 
     @ColorInt
-    var dimColor : Int = context.getCompatColor(R.color.bottom_sheet_dim_color)
+    var dividerColor: Int = context.getCompatColor(R.color.actions_divider_color)
 
     @ColorInt
-    var backgroundColor : Int = context.getCompatColor(R.color.bottom_sheet_background_color)
+    var dimColor: Int = context.getCompatColor(R.color.bottom_sheet_dim_color)
 
-    var dimAmount : Float = DEFAULT_DIM_AMOUNT
-    var topGapSize : Float = 0F
-    var extraPaddingTop : Float = 0F
-    var extraPaddingBottom : Float = 0F
-    var maxWidth : Float = context.getDimension(R.dimen.bottom_sheet_max_sheet_width)
-    var cornerRadius : Float = context.getDimension(R.dimen.bottom_sheet_sheet_corner_radius)
-    var animationDuration : Long = DEFAULT_ANIMATION_DURATION
-    var animationInterpolator : Interpolator = DecelerateInterpolator(1.5F)
-    var isDismissableOnTouchOutside : Boolean = true
-    var isDismissableOnItemClick : Boolean = true
-    var onItemClickListener : ((Action) -> Unit)? = null
+    @ColorInt
+    var backgroundColor: Int = context.getCompatColor(R.color.bottom_sheet_background_color)
 
+    var dimAmount: Float = DEFAULT_DIM_AMOUNT
+    var topGapSize: Float = 0F
+    var extraPaddingTop: Float = 0F
+    var extraPaddingBottom: Float = 0F
+    var maxWidth: Float = context.getDimension(R.dimen.bottom_sheet_max_sheet_width)
+    var cornerRadius: Float = context.getDimension(R.dimen.bottom_sheet_sheet_corner_radius)
+    var animationDuration: Long = DEFAULT_ANIMATION_DURATION
+    var animationInterpolator: Interpolator = DecelerateInterpolator(1.5F)
+    var isDismissableOnTouchOutside: Boolean = true
+    var isDismissableOnItemClick: Boolean = true
+    var onItemClickListener: ((Action) -> Unit)? = null
 
-    fun headerView(@LayoutRes resId : Int, isSticky : Boolean = true) = apply {
+    fun headerView(@LayoutRes resId: Int, isSticky: Boolean = true) = apply {
         headerView = AuxiliaryView(
             resourceId = resId,
             isSticky = isSticky
         )
     }
 
-
-    fun headerView(view : View, isSticky : Boolean = true) = apply {
+    fun headerView(view: View, isSticky: Boolean = true) = apply {
         headerView = AuxiliaryView(
             view = view,
             isSticky = isSticky
         )
     }
 
-
-    internal fun build() : ActionPickerConfig {
+    internal fun build(): ActionPickerConfig {
         return ActionPickerConfig(
             _dimColor = dimColor,
             _dimAmount = dimAmount,
@@ -151,8 +144,6 @@ abstract class AbstractActionPickerConfigBuilder internal constructor(
         )
     }
 
-
-    protected abstract fun createItemThemeApplier() : ItemThemeApplier
-
+    protected abstract fun createItemThemeApplier(): ItemThemeApplier
 
 }

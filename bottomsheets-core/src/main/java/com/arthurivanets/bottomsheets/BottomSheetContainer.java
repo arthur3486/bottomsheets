@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2017 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,15 +44,14 @@ import static com.arthurivanets.bottomsheets.util.Utils.IS_AT_LEAST_LOLLIPOP;
 
 /**
  * <br>
- *      A base container which incorporates the main handling of the bottom sheet related logic.
+ * A base container which incorporates the main handling of the bottom sheet related logic.
  * <br>
  * <br>
- *      Is responsible for the management of the bottom sheet related views, as well as the animations
- *      and related stuff.
+ * Is responsible for the management of the bottom sheet related views, as well as the animations
+ * and related stuff.
  * <br>
  */
 abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
-
 
     protected final BaseConfig mConfig;
 
@@ -88,7 +87,6 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
     private Runnable mViewManagementAction;
     private OnDismissListener mOnDismissListener;
 
-
     BottomSheetContainer(@NonNull Activity hostActivity, @NonNull BaseConfig config) {
         super(hostActivity);
 
@@ -97,7 +95,6 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         init(hostActivity);
     }
 
-
     private void init(Activity hostActivity) {
         initContainer(hostActivity);
         initResources(hostActivity);
@@ -105,17 +102,15 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         requestWindowInsetsWhenAttached();
     }
 
-
     @SuppressWarnings("NewApi")
     private void initContainer(Activity hostActivity) {
         mContentContainer = hostActivity.findViewById(android.R.id.content);
 
         // ensuring that the sheet is rendered atop all the other views within the same View Group
-        if(IS_AT_LEAST_LOLLIPOP) {
+        if (IS_AT_LEAST_LOLLIPOP) {
             setElevation(999f);
         }
     }
-
 
     private void initResources(Activity hostActivity) {
         mDimAmount = mConfig.getDimAmount();
@@ -125,7 +120,6 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         initAnimations();
         initStates();
     }
-
 
     private void initDimensions(Activity hostActivity) {
         mSheetCornerRadius = mConfig.getSheetCornerRadius();
@@ -137,24 +131,20 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         hostActivity.getWindowManager().getDefaultDisplay().getSize(mDisplaySize);
     }
 
-
     private void initColors() {
         mDimColor = mConfig.getDimColor();
         mSheetBackgroundColor = mConfig.getSheetBackgroundColor();
     }
-
 
     private void initAnimations() {
         mAnimationDuration = mConfig.getSheetAnimationDuration();
         mAnimationInterpolator = mConfig.getSheetAnimationInterpolator();
     }
 
-
     private void initStates() {
         mState = State.COLLAPSED;
         mIsDismissableOnTouchOutside = mConfig.isDismissableOnTouchOutside();
     }
-
 
     private void initBottomSheet() {
         mBottomSheetView = new FrameLayout(getContext());
@@ -175,7 +165,6 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         addView(mBottomSheetView);
     }
 
-
     @Override
     public final WindowInsets onApplyWindowInsets(WindowInsets insets) {
         mBottomSheetView.setPadding(
@@ -188,9 +177,8 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         return insets;
     }
 
-
     private void requestWindowInsetsWhenAttached() {
-        if(isAttachedToWindow()) {
+        if (isAttachedToWindow()) {
             requestApplyInsets();
         } else {
             addOnAttachStateChangeListener(new OnAttachStateChangeListener() {
@@ -210,7 +198,6 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         }
     }
 
-
     @Override
     protected final LayoutParams generateDefaultLayoutParams() {
         final LayoutParams layoutParams = new LayoutParams(
@@ -222,7 +209,6 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         return layoutParams;
     }
 
-
     private void addToContainer() {
         mContentContainer.addView(
             this,
@@ -233,11 +219,9 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         );
     }
 
-
     private void removeFromContainer() {
         mContentContainer.removeView(this);
     }
-
 
     @Override
     protected final void onDetachedFromWindow() {
@@ -246,13 +230,12 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         cancelStateTransitionAnimation();
     }
 
-
     /**
      * <br>
-     *      Used to create the content view of the bottom sheet.
+     * Used to create the content view of the bottom sheet.
      * <br>
      * <br>
-     *      (Will be the main content shown to the user)
+     * (Will be the main content shown to the user)
      * <br>
      *
      * @param context a valid context of the parent view
@@ -261,16 +244,14 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
     @NonNull
     protected abstract View onCreateSheetContentView(@NonNull Context context);
 
-
     @Override
     public final boolean onTouchEvent(MotionEvent event) {
-        if(mIsDismissableOnTouchOutside) {
+        if (mIsDismissableOnTouchOutside) {
             dismiss();
         }
 
         return true;
     }
-
 
     @Override
     protected final void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -278,7 +259,6 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
 
         setUiState(mState);
     }
-
 
     @Override
     protected final void measureChildWithMargins(View child,
@@ -296,7 +276,7 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         int adjustedParentHeightMeasureSpec = parentHeightMeasureSpec;
 
         // adjusting the max width & height specs to be used by the Bottom Sheet View
-        if(child == mBottomSheetView) {
+        if (child == mBottomSheetView) {
             adjustedParentWidthMeasureSpec = MeasureSpec.makeMeasureSpec(maxWidth, MeasureSpec.getMode(parentWidthMeasureSpec));
             adjustedParentHeightMeasureSpec = MeasureSpec.makeMeasureSpec(maxHeight, MeasureSpec.getMode(parentHeightMeasureSpec));
         }
@@ -310,16 +290,14 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         );
     }
 
-
     @Override
     public final void show() {
         show(true);
     }
 
-
     @Override
     public final void show(final boolean animate) {
-        if(isAttachedToContainer()) {
+        if (isAttachedToContainer()) {
             return;
         }
 
@@ -328,31 +306,27 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         postViewShowingAction(animate);
     }
 
-
     @Override
     public final void dismiss() {
         dismiss(true);
     }
 
-
     @Override
     public final void dismiss(boolean animate) {
-        if(isAttachedToContainer() && (!animate || !State.COLLAPSING.equals(mState))) {
+        if (isAttachedToContainer() && (!animate || !State.COLLAPSING.equals(mState))) {
             cancelStateTransitionAnimation();
             reportOnDismiss();
             postViewDismissingAction(animate);
         }
     }
 
-
     private void postViewShowingAction(final boolean animate) {
         postPendingViewManagementAction(() -> expandSheet(animate));
     }
 
-
     private void expandSheet(final boolean animate) {
-        if(animate) {
-            if(!State.EXPANDED.equals(mState) && !State.EXPANDING.equals(mState)) {
+        if (animate) {
+            if (!State.EXPANDED.equals(mState) && !State.EXPANDING.equals(mState)) {
                 setUiState(State.COLLAPSED);
                 animateStateTransition(State.EXPANDING);
             }
@@ -361,15 +335,13 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         }
     }
 
-
     private void postViewDismissingAction(final boolean animate) {
         postPendingViewManagementAction(() -> collapseSheet(animate));
     }
 
-
     private void collapseSheet(final boolean animate) {
-        if(animate) {
-            if(!State.COLLAPSED.equals(mState) && !State.COLLAPSING.equals(mState)) {
+        if (animate) {
+            if (!State.COLLAPSED.equals(mState) && !State.COLLAPSING.equals(mState)) {
                 animateStateTransition(State.COLLAPSING);
             }
         } else {
@@ -378,32 +350,28 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         }
     }
 
-
     private void postPendingViewManagementAction(Runnable action) {
         cancelPendingViewManagementAction();
         post(mViewManagementAction = action);
     }
 
-
     private void cancelPendingViewManagementAction() {
-        if(mViewManagementAction != null) {
+        if (mViewManagementAction != null) {
             removeCallbacks(mViewManagementAction);
         }
     }
 
-
     private boolean isAttachedToContainer() {
         final int containerChildCount = mContentContainer.getChildCount();
 
-        for(int i = 0; i < containerChildCount; i++) {
-            if(mContentContainer.getChildAt(i) == this) {
+        for (int i = 0; i < containerChildCount; i++) {
+            if (mContentContainer.getChildAt(i) == this) {
                 return true;
             }
         }
 
         return false;
     }
-
 
     private void animateStateTransition(final State state) {
         // cancelling any currently active transition animation
@@ -435,7 +403,7 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
 
             @Override
             public void onAnimationEnded(Animator animation) {
-                if(isExpanding) {
+                if (isExpanding) {
                     mState = State.EXPANDED;
                 } else {
                     mState = State.COLLAPSED;
@@ -450,25 +418,22 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         mAnimator.start();
     }
 
-
     private void cancelStateTransitionAnimation() {
-        if((mAnimator != null) && mAnimator.isRunning()) {
+        if ((mAnimator != null) && mAnimator.isRunning()) {
             mAnimator.cancel();
         }
     }
 
-
     private void reportOnDismiss() {
-        if(mOnDismissListener != null) {
+        if (mOnDismissListener != null) {
             mOnDismissListener.onDismiss(this);
         }
     }
 
-
     private Drawable createBottomSheetBackgroundDrawable() {
         final GradientDrawable drawable = new GradientDrawable();
         drawable.setColor(mSheetBackgroundColor);
-        drawable.setCornerRadii(new float[] {
+        drawable.setCornerRadii(new float[]{
             mSheetCornerRadius,
             mSheetCornerRadius,
             mSheetCornerRadius,
@@ -482,7 +447,6 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         return drawable;
     }
 
-
     private void setBackgroundAlpha(float alpha) {
         setBackgroundColor(Color.argb(
             (int) (255 * alpha * mDimAmount),
@@ -492,30 +456,26 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         ));
     }
 
-
     private void setUiState(State state) {
         setBottomSheetState(state);
         setBackgroundState(state);
     }
 
-
     private void setBottomSheetState(State state) {
-        if(State.EXPANDED.equals(state)) {
+        if (State.EXPANDED.equals(state)) {
             mBottomSheetView.setY(getMeasuredHeight() - mBottomSheetView.getMeasuredHeight());
-        } else if(State.COLLAPSED.equals(state)) {
+        } else if (State.COLLAPSED.equals(state)) {
             mBottomSheetView.setY(getMeasuredHeight());
         }
     }
 
-
     private void setBackgroundState(State state) {
-        if(State.EXPANDED.equals(state)) {
+        if (State.EXPANDED.equals(state)) {
             setBackgroundAlpha(1f);
-        } else if(State.COLLAPSED.equals(state)) {
+        } else if (State.COLLAPSED.equals(state)) {
             setBackgroundAlpha(0f);
         }
     }
-
 
     @NonNull
     @Override
@@ -523,11 +483,9 @@ abstract class BottomSheetContainer extends FrameLayout implements BottomSheet {
         return mState;
     }
 
-
     @Override
     public final void setOnDismissListener(@Nullable OnDismissListener onDismissListener) {
         mOnDismissListener = onDismissListener;
     }
-
 
 }

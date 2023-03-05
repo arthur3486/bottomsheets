@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2017 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,6 @@ import androidx.core.math.MathUtils;
  */
 public final class Config implements ActionPickerConfig {
 
-
     private final float dimAmount;
     private final float sheetCornerRadius;
     private final float maxSheetWidth;
@@ -56,9 +55,6 @@ public final class Config implements ActionPickerConfig {
 
     private final boolean isDismissableOnTouchOutside;
 
-
-
-
     private Config(Builder builder) {
         this.dimAmount = builder.dimAmount;
         this.sheetCornerRadius = builder.sheetCornerRadius;
@@ -76,105 +72,66 @@ public final class Config implements ActionPickerConfig {
         this.isDismissableOnTouchOutside = builder.isDismissableOnTouchOutside;
     }
 
-
-
-
     @NonNull
     @Override
     public final CharSequence getTitle() {
         return this.title;
     }
 
-
-
-
     @Override
     public final int getTitleTextColor() {
         return this.titleTextColor;
     }
-
-
-
 
     @Override
     public final float getTitleTextSize() {
         return this.titleTextSize;
     }
 
-
-
-
     @Override
     public final int getDimColor() {
         return this.dimColor;
     }
-
-
-
 
     @Override
     public final float getDimAmount() {
         return this.dimAmount;
     }
 
-
-
-
     @Override
     public final float getTopGapSize() {
         return this.topGapSize;
     }
-
-
-
 
     @Override
     public final float getExtraPaddingTop() {
         return this.extraPaddingTop;
     }
 
-
-
-
     @Override
     public final float getExtraPaddingBottom() {
         return this.extraPaddingBottom;
     }
-
-
-
 
     @Override
     public final float getMaxSheetWidth() {
         return this.maxSheetWidth;
     }
 
-
-
-
     @Override
     public final int getSheetBackgroundColor() {
         return this.sheetBackgroundColor;
     }
-
-
-
 
     @Override
     public final float getSheetCornerRadius() {
         return this.sheetCornerRadius;
     }
 
-
-
-
     @Override
     public final long getSheetAnimationDuration() {
         return this.animationDuration;
     }
-
-
-
 
     @NonNull
     @Override
@@ -182,16 +139,10 @@ public final class Config implements ActionPickerConfig {
         return this.animationInterpolator;
     }
 
-
-
-
     @Override
     public final boolean isDismissableOnTouchOutside() {
         return this.isDismissableOnTouchOutside;
     }
-
-
-
 
     public static final class Builder implements ActionPickerConfigBuilder<Builder, ActionPickerConfig> {
 
@@ -214,7 +165,6 @@ public final class Config implements ActionPickerConfig {
 
         private boolean isDismissableOnTouchOutside;
 
-
         public Builder(@NonNull Context context) {
             Preconditions.nonNull(context);
 
@@ -236,13 +186,11 @@ public final class Config implements ActionPickerConfig {
             this.isDismissableOnTouchOutside = true;
         }
 
-
         @Override
         public final Builder title(@NonNull CharSequence title) {
             this.title = Preconditions.checkNonNull(title);
             return this;
         }
-
 
         @Override
         public final Builder titleTextColor(@ColorInt int textColor) {
@@ -250,13 +198,11 @@ public final class Config implements ActionPickerConfig {
             return this;
         }
 
-
         @Override
         public final Builder titleTextSize(float textSize) {
             this.titleTextSize = textSize;
             return this;
         }
-
 
         @NonNull
         public final Builder dimAmount(@FloatRange(from = 0.0f, to = 1.0f) float dimAmount) {
@@ -264,20 +210,17 @@ public final class Config implements ActionPickerConfig {
             return this;
         }
 
-
         @NonNull
         public final Builder sheetCornerRadius(float cornerRadius) {
             this.sheetCornerRadius = cornerRadius;
             return this;
         }
 
-
         @NonNull
         public final Builder topGapSize(float topGapSize) {
             this.topGapSize = topGapSize;
             return this;
         }
-
 
         @NonNull
         @Override
@@ -286,7 +229,6 @@ public final class Config implements ActionPickerConfig {
             return this;
         }
 
-
         @NonNull
         @Override
         public final Builder extraPaddingBottom(float extraPaddingBottom) {
@@ -294,13 +236,11 @@ public final class Config implements ActionPickerConfig {
             return this;
         }
 
-
         @NonNull
         public final Builder maxSheetWidth(float maxWidth) {
             this.maxSheetWidth = maxWidth;
             return this;
         }
-
 
         @NonNull
         public final Builder dimColor(@ColorInt int dimColor) {
@@ -308,13 +248,11 @@ public final class Config implements ActionPickerConfig {
             return this;
         }
 
-
         @NonNull
         public final Builder sheetBackgroundColor(@ColorInt int color) {
             this.sheetBackgroundColor = color;
             return this;
         }
-
 
         @NonNull
         public final Builder sheetAnimationDuration(long animationDuration) {
@@ -322,13 +260,11 @@ public final class Config implements ActionPickerConfig {
             return this;
         }
 
-
         @NonNull
         public final Builder sheetAnimationInterpolator(@NonNull Interpolator interpolator) {
             this.animationInterpolator = Preconditions.checkNonNull(interpolator);
             return this;
         }
-
 
         @NonNull
         public final Builder dismissOnTouchOutside(boolean dismissOnTouchOutside) {
@@ -336,17 +272,12 @@ public final class Config implements ActionPickerConfig {
             return this;
         }
 
-
         @NonNull
         @Override
         public final ActionPickerConfig build() {
             return new Config(this);
         }
 
-
     }
-
-
-
 
 }

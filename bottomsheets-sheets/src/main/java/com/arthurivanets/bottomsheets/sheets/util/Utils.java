@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2017 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,22 +38,16 @@ import static com.arthurivanets.bottomsheets.util.Utils.IS_AT_LEAST_NOUGAT;
  */
 public final class Utils {
 
-
-
-
     /**
      * Disables all the {@link RecyclerView} animations.
      */
     public static void disableAnimations(@NonNull RecyclerView recyclerView) {
         Preconditions.nonNull(recyclerView);
 
-        if(recyclerView.getItemAnimator() != null) {
+        if (recyclerView.getItemAnimator() != null) {
             recyclerView.setItemAnimator(null);
         }
     }
-
-
-
 
     /**
      * Sets the {@link TextView}'s left {@link Drawable}.
@@ -64,15 +58,12 @@ public final class Utils {
         textView.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null);
     }
 
-
-
-
     /**
      * Retrieves the {@link Drawable} for the corresponding drawable resource id
      * and applies the specified color to it.
      *
-     * @param context the context
-     * @param drawableId the drawable resource id
+     * @param context      the context
+     * @param drawableId   the drawable resource id
      * @param desiredColor the desired color to be applied to the retrieved drawable
      * @return the retrieved and colored drawable or null.
      */
@@ -86,9 +77,6 @@ public final class Utils {
 
         return ((drawable != null) ? getColoredDrawable(drawable, desiredColor) : null);
     }
-
-
-
 
     /**
      * Applies the specified color to the specified {@link Drawable}.
@@ -105,9 +93,6 @@ public final class Utils {
         return drawable;
     }
 
-
-
-
     /**
      * Creates a formatted html text from the specified raw text.
      *
@@ -116,20 +101,17 @@ public final class Utils {
      */
     @SuppressWarnings("NewApi")
     public static CharSequence fromHtml(CharSequence rawText) {
-        if(!(rawText instanceof String)) {
+        if (!(rawText instanceof String)) {
             return rawText;
         }
 
         final String text = (String) rawText;
 
-        if(IS_AT_LEAST_NOUGAT) {
+        if (IS_AT_LEAST_NOUGAT) {
             return Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY);
         } else {
             return Html.fromHtml(text);
         }
     }
-
-
-
 
 }

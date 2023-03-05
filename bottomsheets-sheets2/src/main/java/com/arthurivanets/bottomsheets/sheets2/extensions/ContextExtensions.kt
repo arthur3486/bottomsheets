@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2019 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,26 +24,21 @@ import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 
-
-internal val Context.layoutInflater : LayoutInflater
+internal val Context.layoutInflater: LayoutInflater
     get() = LayoutInflater.from(this)
 
-
-internal fun Context.getCompatColor(@ColorRes id : Int) : Int {
+internal fun Context.getCompatColor(@ColorRes id: Int): Int {
     return ContextCompat.getColor(this, id)
 }
 
-
-internal fun Context.getCompatDrawable(@DrawableRes id : Int) : Drawable? {
+internal fun Context.getCompatDrawable(@DrawableRes id: Int): Drawable? {
     return ContextCompat.getDrawable(this, id)
 }
 
-
-internal fun Context.getDimension(@DimenRes id : Int) : Float {
+internal fun Context.getDimension(@DimenRes id: Int): Float {
     return this.resources.getDimension(id)
 }
 
-
-internal fun Context.getDimensionPixelSize(@DimenRes id : Int) : Int {
+internal fun Context.getDimensionPixelSize(@DimenRes id: Int): Int {
     return this.resources.getDimensionPixelSize(id)
 }

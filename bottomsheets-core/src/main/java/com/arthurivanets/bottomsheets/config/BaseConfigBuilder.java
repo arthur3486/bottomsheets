@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2017 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,11 +62,11 @@ public interface BaseConfigBuilder<BT extends BaseConfigBuilder, CT> extends Bui
 
     /**
      * <br>
-     *      Sets the sheet's maximum width.
+     * Sets the sheet's maximum width.
      * <br>
-     *     (This is especially useful in cases when your device is in landscape orientation, or you're
-     *     using a tablet, as in such cases the full screen width would be too much for the sheet,
-     *     so it'd be a great idea to restrict your sheet's width in order to make it more visually appealing)
+     * (This is especially useful in cases when your device is in landscape orientation, or you're
+     * using a tablet, as in such cases the full screen width would be too much for the sheet,
+     * so it'd be a great idea to restrict your sheet's width in order to make it more visually appealing)
      * <br>
      *
      * @param maxWidth the maximum width that the sheet can ever have

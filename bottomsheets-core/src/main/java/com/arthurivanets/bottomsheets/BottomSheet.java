@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2017 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,10 +26,10 @@ public interface BottomSheet {
 
     /**
      * <br>
-     *     Shows the actual sheet.
+     * Shows the actual sheet.
      * <br>
-     *     (Whether the sheet animation will be played or not depends on the underlying implementation,
-     *     in most cases it should be played by default)
+     * (Whether the sheet animation will be played or not depends on the underlying implementation,
+     * in most cases it should be played by default)
      * <br>
      */
     void show();
@@ -43,10 +43,10 @@ public interface BottomSheet {
 
     /**
      * <br>
-     *     Dismisses the actual sheet.
+     * Dismisses the actual sheet.
      * <br>
-     *     (Whether the sheet animation will be played or not depends on the underlying implementation,
-     *     in most cases it should be played by default)
+     * (Whether the sheet animation will be played or not depends on the underlying implementation,
+     * in most cases it should be played by default)
      * <br>
      */
     void dismiss();
@@ -73,7 +73,6 @@ public interface BottomSheet {
     @NonNull
     State getState();
 
-
     /**
      * The possible states of the Bottom Sheet.
      */
@@ -85,7 +84,6 @@ public interface BottomSheet {
         EXPANDING
 
     }
-
 
     /**
      * Bottom Sheet Dismissal Listener.
@@ -100,6 +98,5 @@ public interface BottomSheet {
         void onDismiss(@NonNull BottomSheet bottomSheet);
 
     }
-
 
 }

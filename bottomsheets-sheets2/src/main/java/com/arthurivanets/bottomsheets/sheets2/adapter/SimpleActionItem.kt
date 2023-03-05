@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2019 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,10 +27,10 @@ import com.arthurivanets.bottomsheets.sheets2.extensions.applyColor
 import com.arthurivanets.bottomsheets.sheets2.extensions.colorCompoundDrawables
 import com.arthurivanets.bottomsheets.sheets2.extensions.updateCompoundDrawables
 
-internal class SimpleActionItem(action : SimpleAction) : AbstractItem<SimpleAction, SimpleActionItem.ViewHolder>(action) {
+internal class SimpleActionItem(action: SimpleAction) :
+    AbstractItem<SimpleAction, SimpleActionItem.ViewHolder>(action) {
 
-
-    override fun create(inflater : LayoutInflater, parent : ViewGroup) : ViewHolder {
+    override fun create(inflater: LayoutInflater, parent: ViewGroup): ViewHolder {
         return ViewHolder(
             inflater.inflate(
                 R.layout.item_simple_action,
@@ -40,22 +40,20 @@ internal class SimpleActionItem(action : SimpleAction) : AbstractItem<SimpleActi
         )
     }
 
-
-    override fun performBinding(viewHolder : ViewHolder) = with(viewHolder.actionView) {
+    override fun performBinding(viewHolder: ViewHolder) = with(viewHolder.actionView) {
         updateCompoundDrawables(start = model.icon?.getIcon(context))
         text = model.title.getText(context)
     }
 
+    class ViewHolder(internal val actionView: TextView) : RecyclerView.ViewHolder(actionView),
+        HasListeners {
 
-    class ViewHolder(internal val actionView : TextView) : RecyclerView.ViewHolder(actionView), HasListeners {
-
-        fun setTheme(theme : ItemTheme) = with(actionView) {
+        fun setTheme(theme: ItemTheme) = with(actionView) {
             colorCompoundDrawables(theme.iconColor)
             setTextColor(theme.textColor)
             background = background?.applyColor(theme.overlayColor)
         }
 
     }
-
 
 }

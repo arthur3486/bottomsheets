@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2019 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,8 +25,7 @@ import com.arthurivanets.bottomsheets.sheets2.R
 
 internal class DividerItem : AbstractItem<Unit, DividerItem.ViewHolder>(Unit) {
 
-
-    override fun create(inflater : LayoutInflater, parent : ViewGroup) : RecyclerView.ViewHolder {
+    override fun create(inflater: LayoutInflater, parent: ViewGroup): RecyclerView.ViewHolder {
         return ViewHolder(
             inflater.inflate(
                 R.layout.item_divider,
@@ -36,19 +35,16 @@ internal class DividerItem : AbstractItem<Unit, DividerItem.ViewHolder>(Unit) {
         )
     }
 
-
-    override fun performBinding(viewHolder : ViewHolder) {
+    override fun performBinding(viewHolder: ViewHolder) {
         // do nothing.
     }
 
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
-
-        fun setColor(@ColorInt color : Int) {
+        fun setColor(@ColorInt color: Int) {
             itemView.setBackgroundColor(color)
         }
 
     }
-
 
 }

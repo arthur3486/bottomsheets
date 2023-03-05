@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2017 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,14 +39,11 @@ import androidx.fragment.app.Fragment;
 @SuppressLint("ViewConstructor")
 public final class CustomActionPickerBottomSheet<IT extends BaseActionItem> extends BaseActionPickerBottomSheet<IT, BaseItem.ViewHolder<?>, ActionPickerItemResources> {
 
-
-
-
     /**
      * Creates a new instance of the {@link CustomActionPickerBottomSheet} for the specified custom items.
      *
      * @param fragment the host fragment
-     * @param items the custom action items
+     * @param items    the custom action items
      * @return the created {@link CustomActionPickerBottomSheet}
      */
     @NonNull
@@ -59,14 +56,11 @@ public final class CustomActionPickerBottomSheet<IT extends BaseActionItem> exte
         return init(fragment.getActivity(), items);
     }
 
-
-
-
     /**
      * Creates a new instance of the {@link CustomActionPickerBottomSheet} for the specified custom items.
      *
      * @param activity the host activity
-     * @param items the custom action items
+     * @param items    the custom action items
      * @return the created {@link CustomActionPickerBottomSheet}
      */
     @NonNull
@@ -82,15 +76,12 @@ public final class CustomActionPickerBottomSheet<IT extends BaseActionItem> exte
         );
     }
 
-
-
-
     /**
      * Creates a new instance of the {@link CustomActionPickerBottomSheet} for the specified custom items.
      *
      * @param fragment the host fragment
-     * @param items the custom action items
-     * @param config the sheet configuration
+     * @param items    the custom action items
+     * @param config   the sheet configuration
      * @return the created {@link CustomActionPickerBottomSheet}
      */
     @NonNull
@@ -110,15 +101,12 @@ public final class CustomActionPickerBottomSheet<IT extends BaseActionItem> exte
         );
     }
 
-
-
-
     /**
      * Creates a new instance of the {@link CustomActionPickerBottomSheet} for the specified custom items.
      *
      * @param activity the host activity
-     * @param items the custom action items
-     * @param config the sheet configuration
+     * @param items    the custom action items
+     * @param config   the sheet configuration
      * @return the created {@link CustomActionPickerBottomSheet}
      */
     @NonNull
@@ -137,16 +125,13 @@ public final class CustomActionPickerBottomSheet<IT extends BaseActionItem> exte
         );
     }
 
-
-
-
     /**
      * Creates a new instance of the {@link CustomActionPickerBottomSheet} for the specified custom items.
      *
-     * @param fragment the host fragment
-     * @param items the custom action items
+     * @param fragment      the host fragment
+     * @param items         the custom action items
      * @param itemResources the custom action item resources
-     * @param config the sheet configuration
+     * @param config        the sheet configuration
      * @return the created {@link CustomActionPickerBottomSheet}
      */
     @NonNull
@@ -168,16 +153,13 @@ public final class CustomActionPickerBottomSheet<IT extends BaseActionItem> exte
         );
     }
 
-
-
-
     /**
      * Creates a new instance of the {@link CustomActionPickerBottomSheet} for the specified custom items.
      *
-     * @param activity the host activity
-     * @param items the custom action items
+     * @param activity      the host activity
+     * @param items         the custom action items
      * @param itemResources the custom action item resources
-     * @param config the sheet configuration
+     * @param config        the sheet configuration
      * @return the created {@link CustomActionPickerBottomSheet}
      */
     @NonNull
@@ -197,9 +179,6 @@ public final class CustomActionPickerBottomSheet<IT extends BaseActionItem> exte
             config
         );
     }
-
-
-
 
     protected CustomActionPickerBottomSheet(@NonNull Activity context,
                                             @NonNull List<IT> items,
@@ -213,15 +192,9 @@ public final class CustomActionPickerBottomSheet<IT extends BaseActionItem> exte
         );
     }
 
-
-
-
     @Override
     protected final int getContentViewLayoutResourceId() {
         return R.layout.bottom_sheet_base_action_picker;
     }
-
-
-
 
 }

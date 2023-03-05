@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2017 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,18 +26,16 @@ import com.arthurivanets.bottomsheets.config.Config
 import com.arthurivanets.demo.R
 
 class SimpleCustomBottomSheet(
-    hostActivity : Activity,
-    config : BaseConfig = Config.Builder(hostActivity).build()
+    hostActivity: Activity,
+    config: BaseConfig = Config.Builder(hostActivity).build()
 ) : BaseBottomSheet(hostActivity, config) {
 
-
-    override fun onCreateSheetContentView(context : Context) : View {
+    override fun onCreateSheetContentView(context: Context): View {
         return LayoutInflater.from(context).inflate(
             R.layout.view_simple_custom_bottom_sheet,
             this,
             false
         )
     }
-
 
 }

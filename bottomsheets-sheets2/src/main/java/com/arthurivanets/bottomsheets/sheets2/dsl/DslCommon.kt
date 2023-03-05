@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2019 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,58 +23,51 @@ import android.view.ViewGroup
 import com.arthurivanets.bottomsheets.sheets2.extensions.getCompatDrawable
 import com.arthurivanets.bottomsheets.sheets2.extensions.layoutInflater
 
-
 internal class Icon internal constructor(
-    private val drawable : Drawable? = null,
-    private val resourceId : Int = 0
+    private val drawable: Drawable? = null,
+    private val resourceId: Int = 0
 ) {
 
-
-    fun getIcon(context : Context) : Drawable {
+    fun getIcon(context: Context): Drawable {
         return when {
             (drawable != null) -> drawable
-            (resourceId != 0) -> (context.getCompatDrawable(resourceId) ?: throw IllegalArgumentException("Not Drawable Resource found for ResourceId($resourceId)"))
+            (resourceId != 0) -> (context.getCompatDrawable(resourceId)
+                ?: throw IllegalArgumentException("Not Drawable Resource found for ResourceId($resourceId)"))
             else -> throw IllegalStateException("The Icon is not set.")
         }
     }
 
-
 }
 
-
 internal class Text internal constructor(
-    private val text : CharSequence? = null,
-    private val resourceId : Int = 0,
-    private val args : Array<out Any>? = null
+    private val text: CharSequence? = null,
+    private val resourceId: Int = 0,
+    private val args: Array<out Any>? = null
 ) {
 
-
-    fun getText(context : Context) : CharSequence {
+    fun getText(context: Context): CharSequence {
         return when {
             (text != null) -> text
-            (resourceId != 0) -> (args?.let { context.getString(resourceId, *it) } ?: context.getString(resourceId))
+            (resourceId != 0) -> (args?.let { context.getString(resourceId, *it) }
+                ?: context.getString(resourceId))
             else -> ""
         }
     }
 
-
 }
 
-
 internal data class AuxiliaryView(
-    private val view : View? = null,
-    private val resourceId : Int = 0,
-    internal val isSticky : Boolean = false
+    private val view: View? = null,
+    private val resourceId: Int = 0,
+    internal val isSticky: Boolean = false
 ) {
 
-
-    internal fun getView(context : Context, parent : ViewGroup) : View {
+    internal fun getView(context: Context, parent: ViewGroup): View {
         return when {
             (view != null) -> view
             (resourceId != 0) -> context.layoutInflater.inflate(resourceId, parent, false)
             else -> throw IllegalStateException("The View has not been set.")
         }
     }
-
 
 }

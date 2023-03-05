@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2017 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,8 +19,8 @@ package com.arthurivanets.demo.model
 import androidx.annotation.DrawableRes
 
 data class Person(
-    val id : Long,
-    val username : String,
-    val fullName : String,
-    @DrawableRes val imageResourceId : Int
+    val id: Long,
+    val username: String,
+    val fullName: String,
+    @DrawableRes val imageResourceId: Int
 )

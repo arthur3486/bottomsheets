@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2017 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,6 @@ import com.arthurivanets.demo.R
 
 object ConfirmationActionsProvider {
 
-
     object Id {
 
         const val CONFIRM = 1L
@@ -31,24 +30,26 @@ object ConfirmationActionsProvider {
 
     }
 
-
-    fun getGeneralDeletionConfirmationActionOptions(context : Context) : List<Option> {
+    fun getGeneralDeletionConfirmationActionOptions(context: Context): List<Option> {
         return ArrayList<Option>().apply {
             // Confirmation Option
-            add(context.createOption(
-                Id.CONFIRM,
-                R.drawable.ic_outline_delete_outline_24px,
-                context.getString(R.string.action_delete)
-            ))
+            add(
+                context.createOption(
+                    Id.CONFIRM,
+                    R.drawable.ic_outline_delete_outline_24px,
+                    context.getString(R.string.action_delete)
+                )
+            )
 
             // Cancellation Option
-            add(context.createOption(
-                Id.CANCEL,
-                R.drawable.ic_outline_cancel_24px,
-                context.getString(R.string.action_cancel)
-            ))
+            add(
+                context.createOption(
+                    Id.CANCEL,
+                    R.drawable.ic_outline_cancel_24px,
+                    context.getString(R.string.action_cancel)
+                )
+            )
         }
     }
-
 
 }

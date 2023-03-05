@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Arthur Ivanets, arthur.ivanets.l@gmail.com
+ * Copyright 2017 Arthur Ivanets, arthur.ivanets.work@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,13 +28,11 @@ import androidx.annotation.NonNull;
  */
 public interface BaseConfig {
 
-
     float MIN_DIM_AMOUNT = 0f;
     float MAX_DIM_AMOUNT = 1f;
     float DEFAULT_DIM_AMOUNT = 0.65f;
 
     long DEFAULT_ANIMATION_DURATION = 300L;
-
 
     /**
      * Retrieves the background dimming color.
@@ -116,6 +114,5 @@ public interface BaseConfig {
      * @return whether the sheet will be dismissed on touch outside or not
      */
     boolean isDismissableOnTouchOutside();
-
 
 }
