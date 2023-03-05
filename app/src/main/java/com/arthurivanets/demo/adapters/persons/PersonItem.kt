@@ -30,19 +30,18 @@ import com.arthurivanets.bottomsheets.sheets.adapters.actionpicker.BaseActionIte
 import com.arthurivanets.demo.R
 import com.arthurivanets.demo.model.Person
 
-class PersonItem(itemModel : Person) : BaseActionItem<
+class PersonItem(itemModel: Person) : BaseActionItem<
     Person,
     PersonItemViewHolder,
     ActionPickerItemResources
->(itemModel), Trackable<Long> {
-
+    >(itemModel), Trackable<Long> {
 
     override fun init(
-        adapter : Adapter<out Item<RecyclerView.ViewHolder, ItemResources>>?,
-        parent : ViewGroup,
-        inflater : LayoutInflater,
-        resources : ActionPickerItemResources?
-    ) : PersonItemViewHolder {
+        adapter: Adapter<out Item<RecyclerView.ViewHolder, ItemResources>>?,
+        parent: ViewGroup,
+        inflater: LayoutInflater,
+        resources: ActionPickerItemResources?
+    ): PersonItemViewHolder {
         return PersonItemViewHolder(
             inflater.inflate(
                 layout,
@@ -52,23 +51,19 @@ class PersonItem(itemModel : Person) : BaseActionItem<
         )
     }
 
-
     override fun setOnItemClickListener(
-        viewHolder : PersonItemViewHolder,
-        onItemClickListener : OnItemClickListener<BaseActionItem<Person, PersonItemViewHolder, ActionPickerItemResources>>?
+        viewHolder: PersonItemViewHolder,
+        onItemClickListener: OnItemClickListener<BaseActionItem<Person, PersonItemViewHolder, ActionPickerItemResources>>?
     ) {
         viewHolder.itemView.setOnItemClickListener(this, 0, onItemClickListener)
     }
 
-
-    override fun getLayout() : Int {
+    override fun getLayout(): Int {
         return R.layout.item_person
     }
 
-
-    override fun getTrackKey() : Long {
+    override fun getTrackKey(): Long {
         return itemModel.id
     }
-
 
 }

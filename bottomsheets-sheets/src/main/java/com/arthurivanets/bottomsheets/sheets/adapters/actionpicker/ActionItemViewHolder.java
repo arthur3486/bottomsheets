@@ -26,11 +26,7 @@ import com.arthurivanets.bottomsheets.sheets.util.Utils;
 
 public final class ActionItemViewHolder extends BaseItem.ViewHolder<Option> {
 
-
     final TextView titleTv;
-
-
-
 
     public ActionItemViewHolder(View itemView) {
         super(itemView);
@@ -38,15 +34,12 @@ public final class ActionItemViewHolder extends BaseItem.ViewHolder<Option> {
         this.titleTv = itemView.findViewById(R.id.title);
     }
 
-
-
-
     @Override
     public final void bindData(Option option) {
         super.bindData(option);
 
         // icon-related
-        if(option.isValidIconIdSet()) {
+        if (option.isValidIconIdSet()) {
             Utils.setDrawableLeft(
                 this.titleTv,
                 Utils.getColoredDrawable(
@@ -61,8 +54,5 @@ public final class ActionItemViewHolder extends BaseItem.ViewHolder<Option> {
         this.titleTv.setTextColor(option.getTitleColor());
         this.titleTv.setText(Utils.fromHtml(option.getTitle()));
     }
-
-
-
 
 }

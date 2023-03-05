@@ -30,9 +30,6 @@ import androidx.annotation.NonNull;
 
 public final class BitmapUtils {
 
-
-
-
     @NonNull
     public static Bitmap getCircularBitmap(@NonNull Bitmap bitmap) {
         Preconditions.nonNull(bitmap);
@@ -68,8 +65,5 @@ public final class BitmapUtils {
 
         return croppedCircularImg;
     }
-
-
-
 
 }

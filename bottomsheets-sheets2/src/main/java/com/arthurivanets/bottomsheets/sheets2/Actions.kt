@@ -19,9 +19,7 @@ package com.arthurivanets.bottomsheets.sheets2
 import com.arthurivanets.bottomsheets.sheets2.dsl.Icon
 import com.arthurivanets.bottomsheets.sheets2.dsl.Text
 
-
-inline class ActionId(val id : Long)
-
+inline class ActionId(val id: Long)
 
 /**
  * A base interface that must be implemented by each Action Item Model of
@@ -32,13 +30,12 @@ interface Action {
     /**
      * The id of the action.
      */
-    val id : Long
+    val id: Long
 
 }
 
-
 internal data class SimpleAction(
-    override val id : Long,
-    internal val icon : Icon? = null,
-    internal val title : Text
+    override val id: Long,
+    internal val icon: Icon? = null,
+    internal val title: Text
 ) : Action

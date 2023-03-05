@@ -19,8 +19,8 @@ package com.arthurivanets.demo.model
 import androidx.annotation.DrawableRes
 
 data class Person(
-    val id : Long,
-    val username : String,
-    val fullName : String,
-    @DrawableRes val imageResourceId : Int
+    val id: Long,
+    val username: String,
+    val fullName: String,
+    @DrawableRes val imageResourceId: Int
 )

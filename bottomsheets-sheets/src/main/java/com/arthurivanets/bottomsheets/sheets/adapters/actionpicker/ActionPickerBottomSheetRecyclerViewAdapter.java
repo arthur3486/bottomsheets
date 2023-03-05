@@ -33,15 +33,11 @@ public final class ActionPickerBottomSheetRecyclerViewAdapter<
     IT extends BaseActionItem,
     VH extends BaseItem.ViewHolder<?>,
     IR extends ActionPickerItemResources
-> extends TrackableRecyclerViewAdapter<Long, IT, VH> {
-
+    > extends TrackableRecyclerViewAdapter<Long, IT, VH> {
 
     private final ItemResources mResources;
 
     private OnItemClickListener<IT> mOnItemClickListener;
-
-
-
 
     public ActionPickerBottomSheetRecyclerViewAdapter(@NonNull Context context,
                                                       @NonNull List<IT> items,
@@ -50,9 +46,6 @@ public final class ActionPickerBottomSheetRecyclerViewAdapter<
 
         mResources = Preconditions.checkNonNull(resources);
     }
-
-
-
 
     @SuppressWarnings("unchecked")
     @Override
@@ -64,22 +57,13 @@ public final class ActionPickerBottomSheetRecyclerViewAdapter<
         item.setOnItemClickListener(holder, mOnItemClickListener);
     }
 
-
-
-
     public final void setOnItemClickListener(@Nullable OnItemClickListener<IT> onItemClickListener) {
         mOnItemClickListener = onItemClickListener;
     }
-
-
-
 
     @Override
     public final ItemResources getResources() {
         return mResources;
     }
-
-
-
 
 }

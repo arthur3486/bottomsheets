@@ -26,47 +26,43 @@ import com.arthurivanets.bottomsheets.sheets.config.ActionPickerConfig
 import com.arthurivanets.bottomsheets.sheets.config.ActionPickerConfigBuilder
 import com.arthurivanets.bottomsheets.sheets.config.Config
 
-
 /**
  * Used to build a configuration for the [com.arthurivanets.bottomsheets.BaseBottomSheet].
  *
  * @param builder configuration builder
  */
-inline fun Fragment.baseConfig(crossinline builder : BaseConfigBuilder<out BaseConfigBuilder<*, *>, BaseConfig>.() -> Unit = {}) : BaseConfig {
+inline fun Fragment.baseConfig(crossinline builder: BaseConfigBuilder<out BaseConfigBuilder<*, *>, BaseConfig>.() -> Unit = {}): BaseConfig {
     assertAttachedToContext()
     return context!!.baseConfig(builder)
 }
 
-
 /**
  * Used to build a configuration for the [com.arthurivanets.bottomsheets.BaseBottomSheet].
  *
  * @param builder configuration builder
  */
-inline fun Context.baseConfig(crossinline builder : BaseConfigBuilder<out BaseConfigBuilder<*, *>, BaseConfig>.() -> Unit = {}) : BaseConfig {
+inline fun Context.baseConfig(crossinline builder: BaseConfigBuilder<out BaseConfigBuilder<*, *>, BaseConfig>.() -> Unit = {}): BaseConfig {
     return com.arthurivanets.bottomsheets.config.Config.Builder(this)
         .also { builder(it) }
         .build()
 }
 
-
 /**
  * Used to build a configuration for the Action Picker Bottom Sheet.
  *
  * @param builder configuration builder
  */
-inline fun Fragment.actionPickerConfig(crossinline builder : ActionPickerConfigBuilder<out ActionPickerConfigBuilder<*, *>, ActionPickerConfig>.() -> Unit = {}) : ActionPickerConfig {
+inline fun Fragment.actionPickerConfig(crossinline builder: ActionPickerConfigBuilder<out ActionPickerConfigBuilder<*, *>, ActionPickerConfig>.() -> Unit = {}): ActionPickerConfig {
     assertAttachedToContext()
     return context!!.actionPickerConfig(builder)
 }
 
-
 /**
  * Used to build a configuration for the Action Picker Bottom Sheet.
  *
  * @param builder configuration builder
  */
-inline fun Context.actionPickerConfig(crossinline builder : ActionPickerConfigBuilder<out ActionPickerConfigBuilder<*, *>, ActionPickerConfig>.() -> Unit = {}) : ActionPickerConfig {
+inline fun Context.actionPickerConfig(crossinline builder: ActionPickerConfigBuilder<out ActionPickerConfigBuilder<*, *>, ActionPickerConfig>.() -> Unit = {}): ActionPickerConfig {
     return Config.Builder(this)
         .also { builder(it) }
         .build()

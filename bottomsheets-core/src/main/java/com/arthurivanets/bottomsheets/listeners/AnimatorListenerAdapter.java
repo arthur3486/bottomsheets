@@ -23,18 +23,11 @@ import android.animation.Animator;
  */
 public abstract class AnimatorListenerAdapter implements Animator.AnimatorListener {
 
-
     private boolean mIsCancelled;
-
-
-
 
     protected AnimatorListenerAdapter() {
         mIsCancelled = false;
     }
-
-
-
 
     @Override
     public final void onAnimationStart(Animator animation, boolean isReverse) {
@@ -43,9 +36,6 @@ public abstract class AnimatorListenerAdapter implements Animator.AnimatorListen
         onAnimationStarted(animation);
     }
 
-
-
-
     @Override
     public final void onAnimationStart(Animator animation) {
         mIsCancelled = false;
@@ -53,38 +43,23 @@ public abstract class AnimatorListenerAdapter implements Animator.AnimatorListen
         onAnimationStarted(animation);
     }
 
-
-
-
     public void onAnimationStarted(Animator animation) {
 
     }
-
-
-
 
     @Override
     public final void onAnimationEnd(Animator animation, boolean isReverse) {
         onAnimationEnded(animation);
     }
 
-
-
-
     @Override
     public final void onAnimationEnd(Animator animation) {
         onAnimationEnded(animation);
     }
 
-
-
-
     public void onAnimationEnded(Animator animation) {
 
     }
-
-
-
 
     @Override
     public final void onAnimationCancel(Animator animation) {
@@ -93,15 +68,9 @@ public abstract class AnimatorListenerAdapter implements Animator.AnimatorListen
         onAnimationCancelled(animation);
     }
 
-
-
-
     public void onAnimationCancelled(Animator animation) {
 
     }
-
-
-
 
     @Override
     public final void onAnimationRepeat(Animator animation) {
@@ -110,21 +79,12 @@ public abstract class AnimatorListenerAdapter implements Animator.AnimatorListen
         onAnimationRepeated(animation);
     }
 
-
-
-
     public void onAnimationRepeated(Animator animation) {
 
     }
 
-
-
-
     public final boolean isCancelled() {
         return mIsCancelled;
     }
-
-
-
 
 }

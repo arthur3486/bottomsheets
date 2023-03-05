@@ -27,9 +27,6 @@ import androidx.annotation.NonNull;
  */
 public abstract class BaseBottomSheet extends BottomSheetContainer {
 
-
-
-
     /**
      * The main constructor used for the initialization of the {@link BottomSheet}.
      *
@@ -38,8 +35,5 @@ public abstract class BaseBottomSheet extends BottomSheetContainer {
     public BaseBottomSheet(@NonNull Activity hostActivity, @NonNull BaseConfig config) {
         super(hostActivity, config);
     }
-
-
-
 
 }

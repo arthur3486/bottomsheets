@@ -30,8 +30,8 @@ import kotlinx.android.synthetic.main.view_action_picker_bottom_sheet_content.vi
 
 @SuppressLint("ViewConstructor")
 internal class ActionPickerBottomSheet internal constructor(
-    context : Activity,
-    private val pickerConfig : ActionPickerConfig
+    context: Activity,
+    private val pickerConfig: ActionPickerConfig
 ) : BaseBottomSheet(context, pickerConfig) {
 
 
@@ -40,15 +40,13 @@ internal class ActionPickerBottomSheet internal constructor(
         initRecyclerView()
     }
 
-
-    override fun onCreateSheetContentView(context : Context) : View {
+    override fun onCreateSheetContentView(context: Context): View {
         return context.layoutInflater.inflate(
             R.layout.view_action_picker_bottom_sheet_content,
             this,
             false
         )
     }
-
 
     private fun initHeader() {
         pickerConfig.headerView?.let { headerView ->
@@ -62,14 +60,12 @@ internal class ActionPickerBottomSheet internal constructor(
         }
     }
 
-
     private fun initRecyclerView() = with(recyclerView) {
         layoutManager = LinearLayoutManager(context)
         adapter = initItemAdapter()
     }
 
-
-    private fun initItemAdapter() : SimpleRecyclerViewAdapter<Item<*>> {
+    private fun initItemAdapter(): SimpleRecyclerViewAdapter<Item<*>> {
         return SimpleRecyclerViewAdapter(
             context = context,
             items = pickerConfig.items
@@ -85,14 +81,12 @@ internal class ActionPickerBottomSheet internal constructor(
         }
     }
 
-
-    private fun handleActionClick(action : Action) {
+    private fun handleActionClick(action: Action) {
         if (pickerConfig.isDismissableOnItemClick) {
             dismiss()
         }
 
         pickerConfig.onItemClickListener?.invoke(action)
     }
-
 
 }

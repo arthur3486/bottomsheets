@@ -21,8 +21,7 @@ import com.arthurivanets.demo.model.Person
 
 object PersonProvider {
 
-
-    fun getPeople() : List<Person> {
+    fun getPeople(): List<Person> {
         return listOf(
             Person(
                 id = 1L,
@@ -50,6 +49,5 @@ object PersonProvider {
             )
         )
     }
-
 
 }

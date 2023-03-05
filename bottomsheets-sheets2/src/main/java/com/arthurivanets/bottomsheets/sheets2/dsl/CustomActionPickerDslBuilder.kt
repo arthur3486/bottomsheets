@@ -27,19 +27,17 @@ import com.arthurivanets.bottomsheets.sheets2.adapter.DividerItem
 import com.arthurivanets.bottomsheets.sheets2.adapter.Item
 import com.arthurivanets.bottomsheets.sheets2.adapter.ItemThemeApplier
 
-
 @ActionPickerConfigBuilderDsl
 fun Fragment.customActionPickerBottomSheet(
-    builder : CustomActionPickerConfigBuilder.() -> Unit
-) : BottomSheet {
+    builder: CustomActionPickerConfigBuilder.() -> Unit
+): BottomSheet {
     return requireActivity().customActionPickerBottomSheet(builder)
 }
 
-
 @ActionPickerConfigBuilderDsl
 fun Activity.customActionPickerBottomSheet(
-    builder : CustomActionPickerConfigBuilder.() -> Unit
-) : BottomSheet {
+    builder: CustomActionPickerConfigBuilder.() -> Unit
+): BottomSheet {
     return ActionPickerBottomSheet(
         context = this,
         pickerConfig = CustomActionPickerConfigBuilder(this.applicationContext)
@@ -48,47 +46,38 @@ fun Activity.customActionPickerBottomSheet(
     )
 }
 
-
 @ActionPickerConfigBuilderDsl
 class CustomActionPickerConfigBuilder internal constructor(
-    context : Context
+    context: Context
 ) : AbstractActionPickerConfigBuilder(context) {
 
+    var itemThemeApplier: ItemThemeApplier = { _, _ -> /* Do Nothing */ }
 
-    var itemThemeApplier : ItemThemeApplier = { _, _ -> /* Do Nothing */ }
-
-
-    fun section(builder : CustomActionPickerConfigBuilder.() -> Unit) = apply {
+    fun section(builder: CustomActionPickerConfigBuilder.() -> Unit) = apply {
         items += DividerItem()
         builder(this)
     }
 
-
-    fun item(item : Item<out Action>) = apply {
+    fun item(item: Item<out Action>) = apply {
         items += item
     }
 
-
-    override fun createItemThemeApplier() : ItemThemeApplier {
+    override fun createItemThemeApplier(): ItemThemeApplier {
         return CustomItemThemeApplier(dividerColor, itemThemeApplier)
     }
 
-
 }
 
-
 private class CustomItemThemeApplier(
-    private val dividerColor : Int,
-    private val itemThemeApplier : ItemThemeApplier
+    private val dividerColor: Int,
+    private val itemThemeApplier: ItemThemeApplier
 ) : ItemThemeApplier {
 
-
-    override fun invoke(item : Item<*>, viewHolder : RecyclerView.ViewHolder) {
+    override fun invoke(item: Item<*>, viewHolder: RecyclerView.ViewHolder) {
         when (viewHolder) {
             is DividerItem.ViewHolder -> viewHolder.setColor(dividerColor)
             else -> itemThemeApplier(item, viewHolder)
         }
     }
-
 
 }

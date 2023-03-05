@@ -26,9 +26,8 @@ import android.graphics.drawable.RippleDrawable
 import android.os.Build
 import androidx.annotation.ColorInt
 
-
 @SuppressLint("NewApi")
-internal fun Drawable.applyColor(@ColorInt color : Int) : Drawable {
+internal fun Drawable.applyColor(@ColorInt color: Int): Drawable {
     val newDrawable = this.mutate()
 
     return when {

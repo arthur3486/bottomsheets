@@ -25,8 +25,7 @@ import com.arthurivanets.bottomsheets.sheets2.R
 
 internal class DividerItem : AbstractItem<Unit, DividerItem.ViewHolder>(Unit) {
 
-
-    override fun create(inflater : LayoutInflater, parent : ViewGroup) : RecyclerView.ViewHolder {
+    override fun create(inflater: LayoutInflater, parent: ViewGroup): RecyclerView.ViewHolder {
         return ViewHolder(
             inflater.inflate(
                 R.layout.item_divider,
@@ -36,19 +35,16 @@ internal class DividerItem : AbstractItem<Unit, DividerItem.ViewHolder>(Unit) {
         )
     }
 
-
-    override fun performBinding(viewHolder : ViewHolder) {
+    override fun performBinding(viewHolder: ViewHolder) {
         // do nothing.
     }
 
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
-
-        fun setColor(@ColorInt color : Int) {
+        fun setColor(@ColorInt color: Int) {
             itemView.setBackgroundColor(color)
         }
 
     }
-
 
 }

@@ -40,17 +40,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private var bottomSheet: BottomSheet? = null
 
-    private var bottomSheet : BottomSheet? = null
-
-
-    override fun onCreate(savedInstanceState : Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         init()
         enableFullScreenMode()
     }
-
 
     private fun init() {
         customBottomSheetBtn.setOnClickListener {
@@ -78,24 +75,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     private fun enableFullScreenMode() {
         window.decorView.systemUiVisibility = (
             View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-            or
-            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-            or
-            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-        )
+                or
+                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            )
     }
-
 
     private fun showCustomBottomSheet() {
         dismissBottomSheet()
 
         bottomSheet = SimpleCustomBottomSheet(this).also(BottomSheet::show)
     }
-
 
     private fun showDeletionConfirmationBottomSheet() {
         dismissBottomSheet()
@@ -111,7 +105,6 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-
     private fun showActionsBottomSheet() {
         dismissBottomSheet()
 
@@ -122,7 +115,6 @@ class MainActivity : AppCompatActivity() {
             }
         )
     }
-
 
     private fun showActionsBottomSheet2() {
         bottomSheet = actionPickerBottomSheet {
@@ -155,7 +147,6 @@ class MainActivity : AppCompatActivity() {
         }.also(BottomSheet::show)
     }
 
-
     private fun showPeopleBottomSheet() {
         dismissBottomSheet()
 
@@ -166,7 +157,6 @@ class MainActivity : AppCompatActivity() {
             }
         )
     }
-
 
     private fun showPeopleBottomSheet2() {
         bottomSheet = customActionPickerBottomSheet {
@@ -180,26 +170,22 @@ class MainActivity : AppCompatActivity() {
         }.also(BottomSheet::show)
     }
 
-
-    private fun dismissBottomSheet(animate : Boolean = true) {
+    private fun dismissBottomSheet(animate: Boolean = true) {
         bottomSheet?.dismiss(animate)
         bottomSheet = null
     }
 
-
-    private fun isBottomSheetExpanded() : Boolean {
+    private fun isBottomSheetExpanded(): Boolean {
         return (bottomSheet?.state == BottomSheet.State.EXPANDED)
     }
 
-
     override fun onBackPressed() {
-        if(isBottomSheetExpanded()) {
+        if (isBottomSheetExpanded()) {
             dismissBottomSheet()
             return
         }
 
         super.onBackPressed()
     }
-
 
 }

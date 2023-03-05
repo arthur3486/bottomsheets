@@ -20,23 +20,19 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-
 typealias ItemThemeApplier = (Item<*>, RecyclerView.ViewHolder) -> Unit
-
 
 interface ViewHolderFactory {
 
-    fun create(inflater : LayoutInflater, parent : ViewGroup) : RecyclerView.ViewHolder
+    fun create(inflater: LayoutInflater, parent: ViewGroup): RecyclerView.ViewHolder
 
 }
-
 
 interface Bindable {
 
-    fun bind(viewHolder : RecyclerView.ViewHolder)
+    fun bind(viewHolder: RecyclerView.ViewHolder)
 
 }
-
 
 /**
  * A marker interface that is used to mark the [RecyclerView.ViewHolder]s that support
@@ -44,26 +40,21 @@ interface Bindable {
  */
 interface HasListeners
 
-
 interface Item<Model : Any> : ViewHolderFactory, Bindable {
 
-    val model : Model
+    val model: Model
 
 }
 
-
 abstract class AbstractItem<Model : Any, ViewHolder : RecyclerView.ViewHolder>(
-    override val model : Model
+    override val model: Model
 ) : Item<Model> {
 
-
     @Suppress("unchecked_cast")
-    final override fun bind(viewHolder : RecyclerView.ViewHolder) {
+    final override fun bind(viewHolder: RecyclerView.ViewHolder) {
         performBinding(viewHolder as ViewHolder)
     }
 
-
-    protected abstract fun performBinding(viewHolder : ViewHolder)
-
+    protected abstract fun performBinding(viewHolder: ViewHolder)
 
 }

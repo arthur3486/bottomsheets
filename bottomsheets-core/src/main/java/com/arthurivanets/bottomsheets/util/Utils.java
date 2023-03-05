@@ -27,7 +27,6 @@ import androidx.annotation.NonNull;
  */
 public final class Utils {
 
-
     public static final int API_VERSION = Build.VERSION.SDK_INT;
 
     public static final boolean IS_AT_LEAST_JELLY_BEAN = (API_VERSION >= Build.VERSION_CODES.JELLY_BEAN);
@@ -36,9 +35,6 @@ public final class Utils {
     public static final boolean IS_AT_LEAST_MARSHMALLOW = (API_VERSION >= Build.VERSION_CODES.M);
     public static final boolean IS_AT_LEAST_NOUGAT = (API_VERSION >= Build.VERSION_CODES.N);
     public static final boolean IS_AT_LEAST_OREO = (API_VERSION >= Build.VERSION_CODES.O);
-
-
-
 
     /**
      * Retrieves the size (height) of the system status bar.
@@ -59,9 +55,6 @@ public final class Utils {
         return resources.getDimensionPixelSize(resourceId);
     }
 
-
-
-
     /**
      * Retrieves the size (height) of the system navigation bar.
      *
@@ -80,8 +73,5 @@ public final class Utils {
 
         return resources.getDimensionPixelSize(resourceId);
     }
-
-
-
 
 }

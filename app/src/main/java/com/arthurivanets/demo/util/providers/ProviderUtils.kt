@@ -24,13 +24,14 @@ import androidx.core.content.ContextCompat
 import com.arthurivanets.bottomsheets.sheets.model.Option
 import com.arthurivanets.demo.R
 
-
 /**
  *
  */
-fun Context.createOption(id : Long,
-                         @DrawableRes iconId : Int,
-                         title : CharSequence) : Option {
+fun Context.createOption(
+    id: Long,
+    @DrawableRes iconId: Int,
+    title: CharSequence
+): Option {
     return Option()
         .setId(id)
         .setIconId(iconId)

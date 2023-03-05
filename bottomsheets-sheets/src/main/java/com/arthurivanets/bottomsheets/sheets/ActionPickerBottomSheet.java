@@ -39,14 +39,11 @@ import androidx.fragment.app.Fragment;
 @SuppressLint("ViewConstructor")
 public final class ActionPickerBottomSheet extends BaseActionPickerBottomSheet<ActionItem, ActionItemViewHolder, ActionPickerItemResources> {
 
-
-
-
     /**
      * Creates a new instance of the {@link ActionPickerBottomSheet} for the specified items.
      *
      * @param fragment the host fragment
-     * @param items the action items
+     * @param items    the action items
      * @return the created {@link ActionPickerBottomSheet}
      */
     @NonNull
@@ -59,14 +56,11 @@ public final class ActionPickerBottomSheet extends BaseActionPickerBottomSheet<A
         return init(fragment.getActivity(), items);
     }
 
-
-
-
     /**
      * Creates a new instance of the {@link ActionPickerBottomSheet} for the specified items.
      *
      * @param activity the host activity
-     * @param items the action items
+     * @param items    the action items
      * @return the created {@link ActionPickerBottomSheet}
      */
     @NonNull
@@ -82,15 +76,12 @@ public final class ActionPickerBottomSheet extends BaseActionPickerBottomSheet<A
         );
     }
 
-
-
-
     /**
      * Creates a new instance of the {@link ActionPickerBottomSheet} for the specified items.
      *
      * @param fragment the host fragment
-     * @param items the action items
-     * @param config the sheet configuration
+     * @param items    the action items
+     * @param config   the sheet configuration
      * @return the created {@link ActionPickerBottomSheet}
      */
     @NonNull
@@ -110,15 +101,12 @@ public final class ActionPickerBottomSheet extends BaseActionPickerBottomSheet<A
         );
     }
 
-
-
-
     /**
      * Creates a new instance of the {@link ActionPickerBottomSheet} for the specified items.
      *
      * @param activity the host activity
-     * @param items the action items
-     * @param config the sheet configuration
+     * @param items    the action items
+     * @param config   the sheet configuration
      * @return the created {@link ActionPickerBottomSheet}
      */
     @NonNull
@@ -137,16 +125,13 @@ public final class ActionPickerBottomSheet extends BaseActionPickerBottomSheet<A
         );
     }
 
-
-
-
     /**
      * Creates a new instance of the {@link ActionPickerBottomSheet} for the specified items.
      *
-     * @param fragment the host fragment
-     * @param items the action items
+     * @param fragment      the host fragment
+     * @param items         the action items
      * @param itemResources the action item resources
-     * @param config the sheet configuration
+     * @param config        the sheet configuration
      * @return the created {@link ActionPickerBottomSheet}
      */
     @NonNull
@@ -168,16 +153,13 @@ public final class ActionPickerBottomSheet extends BaseActionPickerBottomSheet<A
         );
     }
 
-
-
-
     /**
      * Creates a new instance of the {@link ActionPickerBottomSheet} for the specified items.
      *
-     * @param activity the host activity
-     * @param items the action items
+     * @param activity      the host activity
+     * @param items         the action items
      * @param itemResources the action item resources
-     * @param config the sheet configuration
+     * @param config        the sheet configuration
      * @return the created {@link ActionPickerBottomSheet}
      */
     @NonNull
@@ -197,9 +179,6 @@ public final class ActionPickerBottomSheet extends BaseActionPickerBottomSheet<A
             config
         );
     }
-
-
-
 
     protected ActionPickerBottomSheet(@NonNull Activity context,
                                       @NonNull List<ActionItem> items,
@@ -213,15 +192,9 @@ public final class ActionPickerBottomSheet extends BaseActionPickerBottomSheet<A
         );
     }
 
-
-
-
     @Override
     protected final int getContentViewLayoutResourceId() {
         return R.layout.bottom_sheet_base_action_picker;
     }
-
-
-
 
 }

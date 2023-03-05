@@ -29,7 +29,6 @@ import com.arthurivanets.bottomsheets.sheets.config.ActionPickerConfig
 import com.arthurivanets.bottomsheets.sheets.listeners.OnItemSelectedListener
 import com.arthurivanets.bottomsheets.sheets.model.Option
 
-
 /**
  * Initializes and shows the [Option] Action Picker Bottom Sheet.
  *
@@ -39,10 +38,12 @@ import com.arthurivanets.bottomsheets.sheets.model.Option
  * @param onDismissListener bottom sheet dismissal listener
  */
 @JvmOverloads
-fun Fragment.showActionPickerBottomSheet(options : List<Option>,
-                                         config : ActionPickerConfig = actionPickerConfig(),
-                                         onItemSelectedListener : OnItemSelectedListener<Option>,
-                                         onDismissListener : BottomSheet.OnDismissListener? = null) : ActionPickerBottomSheet {
+fun Fragment.showActionPickerBottomSheet(
+    options: List<Option>,
+    config: ActionPickerConfig = actionPickerConfig(),
+    onItemSelectedListener: OnItemSelectedListener<Option>,
+    onDismissListener: BottomSheet.OnDismissListener? = null
+): ActionPickerBottomSheet {
     assertAttachedToActivity()
 
     return activity!!.showActionPickerBottomSheet(
@@ -53,7 +54,6 @@ fun Fragment.showActionPickerBottomSheet(options : List<Option>,
     )
 }
 
-
 /**
  * Initializes and shows the [Option] Action Picker Bottom Sheet.
  *
@@ -63,10 +63,12 @@ fun Fragment.showActionPickerBottomSheet(options : List<Option>,
  * @param onDismissListener bottom sheet dismissal listener
  */
 @JvmOverloads
-fun Activity.showActionPickerBottomSheet(options : List<Option>,
-                                         config : ActionPickerConfig = actionPickerConfig(),
-                                         onItemSelectedListener : OnItemSelectedListener<Option>,
-                                         onDismissListener : BottomSheet.OnDismissListener? = null) : ActionPickerBottomSheet {
+fun Activity.showActionPickerBottomSheet(
+    options: List<Option>,
+    config: ActionPickerConfig = actionPickerConfig(),
+    onItemSelectedListener: OnItemSelectedListener<Option>,
+    onDismissListener: BottomSheet.OnDismissListener? = null
+): ActionPickerBottomSheet {
     return ActionPickerBottomSheet.init(
         this,
         options.map(::ActionItem),
@@ -78,7 +80,6 @@ fun Activity.showActionPickerBottomSheet(options : List<Option>,
     }
 }
 
-
 /**
  * Initializes and shows the Custom Action Picker Bottom Sheet.
  * Your custom action items of type [T] will be utilized.
@@ -89,10 +90,12 @@ fun Activity.showActionPickerBottomSheet(options : List<Option>,
  * @param onDismissListener bottom sheet dismissal listener
  */
 @JvmOverloads
-fun <T : BaseActionItem<*, *, *>> Fragment.showCustomActionPickerBottomSheet(items : List<T>,
-                                                                             config : ActionPickerConfig = actionPickerConfig(),
-                                                                             onItemSelectedListener : OnItemSelectedListener<T>,
-                                                                             onDismissListener : BottomSheet.OnDismissListener? = null) : CustomActionPickerBottomSheet<T> {
+fun <T : BaseActionItem<*, *, *>> Fragment.showCustomActionPickerBottomSheet(
+    items: List<T>,
+    config: ActionPickerConfig = actionPickerConfig(),
+    onItemSelectedListener: OnItemSelectedListener<T>,
+    onDismissListener: BottomSheet.OnDismissListener? = null
+): CustomActionPickerBottomSheet<T> {
     assertAttachedToActivity()
 
     return activity!!.showCustomActionPickerBottomSheet(
@@ -103,7 +106,6 @@ fun <T : BaseActionItem<*, *, *>> Fragment.showCustomActionPickerBottomSheet(ite
     )
 }
 
-
 /**
  * Initializes and shows the Custom Action Picker Bottom Sheet.
  * Your custom action items of type [T] will be utilized.
@@ -114,10 +116,12 @@ fun <T : BaseActionItem<*, *, *>> Fragment.showCustomActionPickerBottomSheet(ite
  * @param onDismissListener bottom sheet dismissal listener
  */
 @JvmOverloads
-fun <T : BaseActionItem<*, *, *>> Activity.showCustomActionPickerBottomSheet(items : List<T>,
-                                                                             config : ActionPickerConfig = actionPickerConfig(),
-                                                                             onItemSelectedListener : OnItemSelectedListener<T>,
-                                                                             onDismissListener : BottomSheet.OnDismissListener? = null) : CustomActionPickerBottomSheet<T> {
+fun <T : BaseActionItem<*, *, *>> Activity.showCustomActionPickerBottomSheet(
+    items: List<T>,
+    config: ActionPickerConfig = actionPickerConfig(),
+    onItemSelectedListener: OnItemSelectedListener<T>,
+    onDismissListener: BottomSheet.OnDismissListener? = null
+): CustomActionPickerBottomSheet<T> {
     return CustomActionPickerBottomSheet.init(
         this,
         items,

@@ -47,17 +47,16 @@ import static com.arthurivanets.bottomsheets.sheets.util.Utils.disableAnimations
 
 /**
  * <br>
- *      A base class to be used for the concrete implementation of the Action Picker Bottom Sheets.
+ * A base class to be used for the concrete implementation of the Action Picker Bottom Sheets.
  * <br>
- *      Provides the general skeleton for the final {@link com.arthurivanets.bottomsheets.BottomSheet} implementation.
+ * Provides the general skeleton for the final {@link com.arthurivanets.bottomsheets.BottomSheet} implementation.
  * <br>
  */
 abstract class BaseActionPickerBottomSheet<
     IT extends BaseActionItem,
     VH extends BaseItem.ViewHolder<?>,
     IR extends ActionPickerItemResources
-> extends BaseBottomSheet {
-
+    > extends BaseBottomSheet {
 
     protected final ActionPickerConfig mConfig;
 
@@ -68,7 +67,6 @@ abstract class BaseActionPickerBottomSheet<
     private boolean mShouldDismissOnItemSelection;
 
     private OnItemSelectedListener<IT> mOnItemSelectedListener;
-
 
     protected BaseActionPickerBottomSheet(@NonNull Activity context,
                                           @NonNull List<IT> items,
@@ -84,7 +82,6 @@ abstract class BaseActionPickerBottomSheet<
         onSheetContentViewCreated();
     }
 
-
     @NonNull
     @Override
     protected final View onCreateSheetContentView(@NonNull Context context) {
@@ -95,13 +92,11 @@ abstract class BaseActionPickerBottomSheet<
         );
     }
 
-
     @CallSuper
     protected void onSheetContentViewCreated() {
         initTitleView();
         initRecyclerView();
     }
-
 
     private void initTitleView() {
         final TextView titleTv = findViewById(R.id.title);
@@ -111,7 +106,6 @@ abstract class BaseActionPickerBottomSheet<
         titleTv.setVisibility(!TextUtils.isEmpty(mConfig.getTitle()) ? View.VISIBLE : View.GONE);
     }
 
-
     private void initRecyclerView() {
         final RecyclerView recyclerView = findViewById(R.id.recycler_view);
         disableAnimations(recyclerView);
@@ -119,11 +113,9 @@ abstract class BaseActionPickerBottomSheet<
         recyclerView.setAdapter(initAdapter(getContext()));
     }
 
-
     private RecyclerView.LayoutManager initLayoutManager(Context context) {
         return new LinearLayoutManager(context);
     }
-
 
     private ActionPickerBottomSheetRecyclerViewAdapter<IT, VH, IR> initAdapter(Context context) {
         final ActionPickerBottomSheetRecyclerViewAdapter<IT, VH, IR> adapter = new ActionPickerBottomSheetRecyclerViewAdapter<>(
@@ -136,22 +128,19 @@ abstract class BaseActionPickerBottomSheet<
         return adapter;
     }
 
-
     private void onActionItemClicked(IT item) {
-        if(mShouldDismissOnItemSelection) {
+        if (mShouldDismissOnItemSelection) {
             dismiss();
         }
 
         reportItemSelected(item);
     }
 
-
     private void reportItemSelected(IT item) {
-        if(mOnItemSelectedListener != null) {
+        if (mOnItemSelectedListener != null) {
             mOnItemSelectedListener.onItemSelected(item);
         }
     }
-
 
     /**
      * Used to retrieve the appropriate content view layout resource id to be inflated
@@ -162,7 +151,6 @@ abstract class BaseActionPickerBottomSheet<
     @LayoutRes
     protected abstract int getContentViewLayoutResourceId();
 
-
     /**
      * Registers the action item selection listener, to be invoked when the selectable action item is clicked (selected).
      *
@@ -171,7 +159,6 @@ abstract class BaseActionPickerBottomSheet<
     public final void setOnItemSelectedListener(@Nullable OnItemSelectedListener<IT> onItemSelectedListener) {
         mOnItemSelectedListener = onItemSelectedListener;
     }
-
 
     /**
      * Specifies the exact behavior of the {@link com.arthurivanets.bottomsheets.BottomSheet} in cases
@@ -182,6 +169,5 @@ abstract class BaseActionPickerBottomSheet<
     public final void setDismissOnItemSelection(boolean shouldDismissOnItemSelection) {
         mShouldDismissOnItemSelection = shouldDismissOnItemSelection;
     }
-
 
 }

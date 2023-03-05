@@ -35,19 +35,17 @@ import com.arthurivanets.bottomsheets.sheets2.adapter.ItemThemeApplier
 import com.arthurivanets.bottomsheets.sheets2.adapter.SimpleActionItem
 import com.arthurivanets.bottomsheets.sheets2.extensions.getCompatColor
 
-
 @ActionPickerConfigBuilderDsl
 fun Fragment.actionPickerBottomSheet(
-    builder : ActionPickerConfigBuilder.() -> Unit
-) : BottomSheet {
+    builder: ActionPickerConfigBuilder.() -> Unit
+): BottomSheet {
     return requireActivity().actionPickerBottomSheet(builder)
 }
 
-
 @ActionPickerConfigBuilderDsl
 fun Activity.actionPickerBottomSheet(
-    builder : ActionPickerConfigBuilder.() -> Unit
-) : BottomSheet {
+    builder: ActionPickerConfigBuilder.() -> Unit
+): BottomSheet {
     return ActionPickerBottomSheet(
         context = this,
         pickerConfig = ActionPickerConfigBuilder(this.applicationContext)
@@ -56,34 +54,29 @@ fun Activity.actionPickerBottomSheet(
     )
 }
 
-
 @ActionPickerConfigBuilderDsl
 class ActionPickerConfigBuilder internal constructor(
-    context : Context
+    context: Context
 ) : AbstractActionPickerConfigBuilder(context) {
 
-
-    private var itemTheme : ItemTheme = ItemTheme.Builder(context).build()
-
+    private var itemTheme: ItemTheme = ItemTheme.Builder(context).build()
 
     @ItemThemeBuilderDsl
-    fun itemTheme(builder : ItemTheme.Builder.() -> Unit) = apply {
+    fun itemTheme(builder: ItemTheme.Builder.() -> Unit) = apply {
         itemTheme = ItemTheme.Builder(context)
             .also(builder)
             .build()
     }
 
-
-    fun section(builder : ActionPickerConfigBuilder.() -> Unit) = apply {
+    fun section(builder: ActionPickerConfigBuilder.() -> Unit) = apply {
         items += DividerItem()
         builder(this)
     }
 
-
     fun action(
-        id : ActionId,
-        @StringRes titleId : Int,
-        vararg args : Any
+        id: ActionId,
+        @StringRes titleId: Int,
+        vararg args: Any
     ) = apply {
         items += SimpleActionItem(
             SimpleAction(
@@ -96,12 +89,11 @@ class ActionPickerConfigBuilder internal constructor(
         )
     }
 
-
     fun action(
-        id : ActionId,
-        @DrawableRes iconId : Int,
-        @StringRes titleId : Int,
-        vararg args : Any
+        id: ActionId,
+        @DrawableRes iconId: Int,
+        @StringRes titleId: Int,
+        vararg args: Any
     ) = apply {
         items += SimpleActionItem(
             SimpleAction(
@@ -115,12 +107,11 @@ class ActionPickerConfigBuilder internal constructor(
         )
     }
 
-
     fun action(
-        id : ActionId,
-        icon : Drawable,
-        @StringRes titleId : Int,
-        vararg args : Any
+        id: ActionId,
+        icon: Drawable,
+        @StringRes titleId: Int,
+        vararg args: Any
     ) = apply {
         items += SimpleActionItem(
             SimpleAction(
@@ -134,11 +125,10 @@ class ActionPickerConfigBuilder internal constructor(
         )
     }
 
-
     fun action(
-        id : ActionId,
-        @DrawableRes iconId : Int,
-        title : CharSequence
+        id: ActionId,
+        @DrawableRes iconId: Int,
+        title: CharSequence
     ) = apply {
         items += SimpleActionItem(
             SimpleAction(
@@ -149,12 +139,11 @@ class ActionPickerConfigBuilder internal constructor(
         )
     }
 
-
     @JvmOverloads
     fun action(
-        id : ActionId,
-        icon : Drawable? = null,
-        title : CharSequence
+        id: ActionId,
+        icon: Drawable? = null,
+        title: CharSequence
     ) = apply {
         items += SimpleActionItem(
             SimpleAction(
@@ -165,39 +154,34 @@ class ActionPickerConfigBuilder internal constructor(
         )
     }
 
-
-    override fun createItemThemeApplier() : ItemThemeApplier {
+    override fun createItemThemeApplier(): ItemThemeApplier {
         return DefaultItemThemeApplier(dividerColor, itemTheme)
     }
 
-
 }
-
 
 @DslMarker
 annotation class ItemThemeBuilderDsl
 
-
 data class ItemTheme internal constructor(
-    internal val iconColor : Int,
-    internal val textColor : Int,
-    internal val overlayColor : Int
+    internal val iconColor: Int,
+    internal val textColor: Int,
+    internal val overlayColor: Int
 ) {
 
-
     @ItemThemeBuilderDsl
-    class Builder internal constructor(context : Context) {
+    class Builder internal constructor(context: Context) {
 
         @ColorInt
-        var iconColor : Int = context.getCompatColor(R.color.action_item_icon)
+        var iconColor: Int = context.getCompatColor(R.color.action_item_icon)
 
         @ColorInt
-        var textColor : Int = context.getCompatColor(R.color.action_item_text)
+        var textColor: Int = context.getCompatColor(R.color.action_item_text)
 
         @ColorInt
-        var overlayColor : Int = context.getCompatColor(R.color.action_item_overlay)
+        var overlayColor: Int = context.getCompatColor(R.color.action_item_overlay)
 
-        internal fun build() : ItemTheme {
+        internal fun build(): ItemTheme {
             return ItemTheme(
                 iconColor = iconColor,
                 textColor = textColor,
@@ -207,22 +191,18 @@ data class ItemTheme internal constructor(
 
     }
 
-
 }
 
-
 private class DefaultItemThemeApplier(
-    private val dividerColor : Int,
-    private val theme : ItemTheme
+    private val dividerColor: Int,
+    private val theme: ItemTheme
 ) : ItemThemeApplier {
 
-
-    override fun invoke(item : Item<*>, viewHolder : RecyclerView.ViewHolder) {
+    override fun invoke(item: Item<*>, viewHolder: RecyclerView.ViewHolder) {
         when (viewHolder) {
             is DividerItem.ViewHolder -> viewHolder.setColor(dividerColor)
             is SimpleActionItem.ViewHolder -> viewHolder.setTheme(theme)
         }
     }
-
 
 }

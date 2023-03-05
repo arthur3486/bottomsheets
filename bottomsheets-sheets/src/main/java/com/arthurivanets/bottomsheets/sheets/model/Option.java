@@ -35,7 +35,6 @@ import androidx.annotation.Nullable;
  */
 public final class Option implements Parcelable {
 
-
     private int iconId;
 
     private int iconColor;
@@ -49,9 +48,6 @@ public final class Option implements Parcelable {
 
     private Object tag;
 
-
-
-
     public Option() {
         this.iconId = 0;
         this.iconColor = Color.BLACK;
@@ -62,9 +58,6 @@ public final class Option implements Parcelable {
         this.description = "";
         this.tag = null;
     }
-
-
-
 
     private Option(Parcel in) {
         this.iconId = in.readInt();
@@ -77,24 +70,15 @@ public final class Option implements Parcelable {
         this.tag = in.readSerializable();
     }
 
-
-
-
     @NonNull
     public final Option setId(long id) {
         this.id = id;
         return this;
     }
 
-
-
-
     public final long getId() {
         return this.id;
     }
-
-
-
 
     @NonNull
     public final Option setIconId(@DrawableRes int iconId) {
@@ -102,23 +86,14 @@ public final class Option implements Parcelable {
         return this;
     }
 
-
-
-
     @DrawableRes
     public final int getIconId() {
         return this.iconId;
     }
 
-
-
-
     public final boolean isValidIconIdSet() {
         return (this.iconId != 0);
     }
-
-
-
 
     @NonNull
     public final Option setIconColor(@ColorInt int iconColor) {
@@ -126,16 +101,10 @@ public final class Option implements Parcelable {
         return this;
     }
 
-
-
-
     @ColorInt
     public final int getIconColor() {
         return this.iconColor;
     }
-
-
-
 
     @NonNull
     public final Option setTitleColor(@ColorInt int titleColor) {
@@ -143,16 +112,10 @@ public final class Option implements Parcelable {
         return this;
     }
 
-
-
-
     @ColorInt
     public final int getTitleColor() {
         return this.titleColor;
     }
-
-
-
 
     @NonNull
     public final Option setDescriptionColor(@ColorInt int descriptionColor) {
@@ -160,16 +123,10 @@ public final class Option implements Parcelable {
         return this;
     }
 
-
-
-
     @ColorInt
     public final int getDescriptionColor() {
         return this.descriptionColor;
     }
-
-
-
 
     @NonNull
     public final Option setTitle(@NonNull CharSequence title) {
@@ -177,16 +134,10 @@ public final class Option implements Parcelable {
         return this;
     }
 
-
-
-
     @NonNull
     public final CharSequence getTitle() {
         return this.title;
     }
-
-
-
 
     @NonNull
     public final Option setDescription(@NonNull CharSequence description) {
@@ -194,16 +145,10 @@ public final class Option implements Parcelable {
         return this;
     }
 
-
-
-
     @NonNull
     public final CharSequence getDescription() {
         return this.description;
     }
-
-
-
 
     @NonNull
     public final Option setTag(@Nullable Object tag) {
@@ -211,16 +156,10 @@ public final class Option implements Parcelable {
         return this;
     }
 
-
-
-
     @Nullable
     public final Object getTag() {
         return this.tag;
     }
-
-
-
 
     @SuppressWarnings("unchecked")
     @Nullable
@@ -228,15 +167,9 @@ public final class Option implements Parcelable {
         return ((T) this.tag);
     }
 
-
-
-
     public final boolean isTagSet() {
         return (this.tag != null);
     }
-
-
-
 
     @Override
     public final int hashCode() {
@@ -254,24 +187,15 @@ public final class Option implements Parcelable {
         return result;
     }
 
-
-
-
     @Override
     public final boolean equals(@Nullable Object obj) {
         return ((obj instanceof Option) && (obj.hashCode() == hashCode()));
     }
 
-
-
-
     @Override
     public final int describeContents() {
         return 0;
     }
-
-
-
 
     @Override
     public final void writeToParcel(Parcel dest, int flags) {
@@ -283,13 +207,10 @@ public final class Option implements Parcelable {
         TextUtils.writeToParcel(this.title, dest, flags);
         TextUtils.writeToParcel(this.description, dest, flags);
 
-        if(this.tag instanceof Serializable) {
+        if (this.tag instanceof Serializable) {
             dest.writeSerializable((Serializable) this.tag);
         }
     }
-
-
-
 
     public static final Creator<Option> CREATOR = new ClassLoaderCreator<Option>() {
 
@@ -309,8 +230,5 @@ public final class Option implements Parcelable {
         }
 
     };
-
-
-
 
 }

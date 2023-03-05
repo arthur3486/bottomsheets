@@ -22,15 +22,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.reflect.KClass
 
-
-private inline class ViewType(val type : Int)
-
+private inline class ViewType(val type: Int)
 
 internal class SimpleRecyclerViewAdapter<IT : Item<*>>(
-    context : Context,
-    items : List<IT> = emptyList()
+    context: Context,
+    items: List<IT> = emptyList()
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
 
     private val inflater = LayoutInflater.from(context)
     private val viewHolderFactories = HashMap<ViewType, ViewHolderFactory>()
@@ -42,14 +39,12 @@ internal class SimpleRecyclerViewAdapter<IT : Item<*>>(
             notifyDataSetChanged()
         }
 
-    var itemThemer : ItemThemeApplier? = null
-    var listenerBinder : ((IT, RecyclerView.ViewHolder) -> Unit)? = null
-
+    var itemThemer: ItemThemeApplier? = null
+    var listenerBinder: ((IT, RecyclerView.ViewHolder) -> Unit)? = null
 
     init {
         items.extractViewHolderFactories()
     }
-
 
     private fun List<IT>.extractViewHolderFactories() {
         viewHolderFactories.clear()
@@ -63,14 +58,12 @@ internal class SimpleRecyclerViewAdapter<IT : Item<*>>(
         }
     }
 
-
-    override fun onCreateViewHolder(parent : ViewGroup, viewType : Int) : RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val viewHolder = viewHolderFactories[ViewType(viewType)]?.create(inflater, parent)
         return (viewHolder ?: throw RuntimeException("The ViewHolder factory was not found."))
     }
 
-
-    override fun onBindViewHolder(holder : RecyclerView.ViewHolder, position : Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         with(this[position]) {
             bind(holder)
 
@@ -82,25 +75,20 @@ internal class SimpleRecyclerViewAdapter<IT : Item<*>>(
         }
     }
 
-
-    override fun getItemCount() : Int {
+    override fun getItemCount(): Int {
         return items.size
     }
 
-
-    override fun getItemViewType(position : Int) : Int {
+    override fun getItemViewType(position: Int): Int {
         return this[position]::class.toViewType().type
     }
 
-
-    operator fun get(position : Int) : IT {
+    operator fun get(position: Int): IT {
         return items[position]
     }
 
-
-    private fun KClass<out Item<*>>.toViewType() : ViewType {
+    private fun KClass<out Item<*>>.toViewType(): ViewType {
         return ViewType(this.qualifiedName.hashCode())
     }
-
 
 }

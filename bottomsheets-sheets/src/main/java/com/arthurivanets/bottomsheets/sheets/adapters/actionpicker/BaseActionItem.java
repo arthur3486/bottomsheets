@@ -27,25 +27,16 @@ import androidx.annotation.Nullable;
  */
 public abstract class BaseActionItem<IM, VH extends BaseItem.ViewHolder<IM>, IR extends ActionPickerItemResources> extends BaseItem<IM, VH, IR> {
 
-
-
-
     public BaseActionItem(IM itemModel) {
         super(itemModel);
     }
 
-
-
-
     /**
      * Registers the Action Item Click Listener.
      *
-     * @param viewHolder the item view holder
+     * @param viewHolder          the item view holder
      * @param onItemClickListener the actual listener
      */
     public abstract void setOnItemClickListener(@NonNull VH viewHolder, @Nullable OnItemClickListener<BaseActionItem<IM, VH, IR>> onItemClickListener);
-
-
-
 
 }
