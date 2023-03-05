@@ -58,7 +58,7 @@ buildscript {
 }
 ````
 
-2. Add the library dependency to your module-level `build.gradle` file. 
+2. Add the library dependency to your module-level `build.gradle` file.
 > ***Latest version:*** [ ![Download](https://api.bintray.com/packages/arthurimsacc/maven/bottomsheets-core/images/download.svg) ](https://bintray.com/arthurimsacc/maven/bottomsheets-core/_latestVersion)
 
 ````groovy
@@ -136,7 +136,7 @@ So, let's create a custom bottom sheet class - [`SimpleCustomBottomSheet`](https
 
 <details><summary><b>Kotlin (click to expand)</b></summary>
 <p>
-    
+
 ````kotlin
 class SimpleCustomBottomSheet(
     hostActivity : Activity,
@@ -158,7 +158,7 @@ class SimpleCustomBottomSheet(
 
 <details><summary><b>Java (click to expand)</b></summary>
 <p>
-    
+
 ````java
 public class SimpleCustomBottomSheet extends BaseBottomSheet {
 
@@ -207,7 +207,7 @@ class MainActivity : AppCompatActivity() {
 
 <details><summary><b>Java (click to expand)</b></summary>
 <p>
-    
+
 ````java
 public class MainActivity extends AppCompatActivity {
 
@@ -248,7 +248,7 @@ class MainActivity : AppCompatActivity() {
             }
         )
     }
-	
+
     fun getActionOptions() : List<Option> {
         // your options
     }
@@ -260,7 +260,7 @@ class MainActivity : AppCompatActivity() {
 
 <details><summary><b>Java (click to expand)</b></summary>
 <p>
-    
+
 ````java
 public class MainActivity extends AppCompatActivity {
 
@@ -274,14 +274,14 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onItemSelected(@NonNull Option item) {
                     // do something
-                }    
+                }
             }
         );
     }
 
     private List<Option> getActionOptions() {
         // your options
-    } 
+    }
 
 }
 ````
@@ -304,7 +304,7 @@ class MainActivity : AppCompatActivity() {
             getActionOptions().map(::ActionItem),
             Config.Builder(this).build()
         )
-        bottomSheet.setOnItemSelectedListener { 
+        bottomSheet.setOnItemSelectedListener {
             // do something...
         }
         bottomSheet.show()
@@ -321,7 +321,7 @@ class MainActivity : AppCompatActivity() {
 
 <details><summary><b>Java (click to expand)</b></summary>
 <p>
-    
+
 ````java
 public class MainActivity extends AppCompatActivity {
 
@@ -389,7 +389,7 @@ See the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 </table>
 
 
-> Using BottomSheets in your app and want it to get listed here? Email me at arthur.ivanets.l@gmail.com!
+> Using BottomSheets in your app and want it to get listed here? Email me at arthur.ivanets.work@gmail.com!
 
 ## License
 
